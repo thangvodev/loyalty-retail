@@ -35,6 +35,20 @@ const Menu = () => {
         </div>
         <ChevronIcon className="size-[16px]" />
       </div>
+
+      <Divider className="m-0" />
+      <div
+        className="flex items-center justify-between"
+        onClick={() => navigate("/mini-game")}
+      >
+        <div className="flex items-center gap-[12px]">
+          <div className="flex size-[40px] items-center justify-center rounded-full bg-orange5">
+            <OrderMenuFilledIcon className="text-white" />
+          </div>
+          <div className="text-sm font-medium">UI Mini Game</div>
+        </div>
+        <ChevronIcon className="size-[16px]" />
+      </div>
     </div>
   );
 };

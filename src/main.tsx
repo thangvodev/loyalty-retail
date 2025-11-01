@@ -37,6 +37,7 @@ import FlashSalePage from "./presentation/pages/FlashSalePage";
 import CategoryPage from "./presentation/pages/CategoryPage";
 import ShopPage from "./presentation/pages/ShopPage";
 import ProductDetailsPage from "./presentation/pages/ProductDetailsPage";
+import MiniGame from "./presentation/pages/MiniGame";
 
 const Layout = () => {
   return (
@@ -90,6 +91,10 @@ const router = createBrowserRouter(
         {
           path: "products/:productId",
           element: <ProductDetailsPage />,
+        },
+        {
+          path: "mini-game",
+          element: <MiniGame />,
         },
       ],
     },

@@ -69,6 +69,7 @@ module.exports = {
         orange1: "#FAF2EA",
         orange2: "#FAF2EA",
         orange3: "#EFD3B8",
+        orange4: "#F1BF8C",
         orange5: "#ECAA68",
         orange6: "#E89543",
         orange7: "#D4771A",
