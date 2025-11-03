@@ -38,6 +38,7 @@ import CategoryPage from "./presentation/pages/CategoryPage";
 import ShopPage from "./presentation/pages/ShopPage";
 import ProductDetailsPage from "./presentation/pages/ProductDetailsPage";
 import MiniGame from "./presentation/pages/MiniGame";
+import LuckyRawPage from "./presentation/pages/LuckyRawPage";
 
 const Layout = () => {
   return (
@@ -95,6 +96,10 @@ const router = createBrowserRouter(
         {
           path: "mini-game",
           element: <MiniGame />,
+        },
+        {
+          path: "/lucky-draw",
+          element: <LuckyRawPage />,
         },
       ],
     },

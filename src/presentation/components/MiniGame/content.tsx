@@ -98,21 +98,21 @@ const actions = [
     title: "Vòng quay may mắn",
     desc: "Lorem ipsum",
     buttonText: "Chơi ngay",
-    onClick: () => {},
+    path: "/lucky-draw",
   },
   {
     icon: Game2Icon,
     title: "Chia sẻ nhận thưởng",
     desc: "2/3 lượt chia sẻ, nhận 120 điểm",
     buttonText: "Chia sẻ",
-    onClick: () => {},
+    path: "",
   },
   {
     icon: Game3Icon,
     title: "Làm nhiệm vụ nhận thưởng",
     desc: "Thực hiện nhiệm vụ để cộng thêm điểm",
     buttonText: "Thực hiện",
-    onClick: () => {},
+    path: "",
   },
 ];
 

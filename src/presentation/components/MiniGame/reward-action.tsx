@@ -1,13 +1,14 @@
 import React from "react";
 import GameIcon from "../../static/icons/game-icon.png";
 import { Divider } from "antd";
+import { useNavigate } from "react-router-dom";
 
 interface ActionItem {
   icon: string;
   title: string;
   desc: string;
   buttonText: string;
-  onClick: () => void;
+  path: string;
 }
 
 interface RewardActionsProps {
@@ -15,6 +16,12 @@ interface RewardActionsProps {
 }
 
 const RewardActions: React.FC<RewardActionsProps> = ({ actions }) => {
+  const navigate = useNavigate();
+  const handleClick = (item: ActionItem) => {
+    if (item.path) {
+      navigate(item.path);
+    }
+  };
   return (
     <div
       className="rounded-[12px] bg-white p-3"
@@ -31,9 +38,8 @@ const RewardActions: React.FC<RewardActionsProps> = ({ actions }) => {
 
       <div className="flex flex-col">
         {actions.map((item, idx) => (
-          <React.Fragment>
+          <React.Fragment key={idx}>
             <div
-              key={idx}
               className="flex items-center justify-between"
               style={{
                 paddingTop: idx !== 0 ? "16px" : "0",
@@ -64,7 +70,7 @@ const RewardActions: React.FC<RewardActionsProps> = ({ actions }) => {
                 </div>
               </div>
               <button
-                onClick={item.onClick}
+                onClick={() => handleClick(item)}
                 className="whitespcae-nowrap mr-2 min-w-[67px] rounded-full bg-green6 p-[6px] text-[12px] text-white"
               >
                 {item.buttonText}

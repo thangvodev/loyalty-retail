@@ -41,7 +41,7 @@ const GameInfoCard: React.FC<GameInfoCardProps> = ({
 
         <div>
           <div className="text-[20px] font-medium">{name}</div>
-          <div className="h-[20px] rounded-xl border-[0.83px] border-white px-[9px] text-[10px] font-medium">
+          <div className="mt-1 h-[20px] rounded-xl border-[0.83px] border-white px-[9px] text-[10px] font-medium">
             Xếp hạng
             <span className="text-[11.59px]"> #{rank}</span>
           </div>
