@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import PinWheel from "../../static/images/pin-wheel.png";
+import PinWheelBg2 from "../../static/images/pin-whell-bg-2.png";
 
 type Segment = {
   id: string | number;
@@ -17,6 +18,7 @@ type LuckyWheelProps = {
   easing?: string;
   spinning?: boolean;
   setSpinning?: (v: boolean) => void;
+  setWinPrizeVisible?: (v: boolean) => void;
 };
 
 export default function LuckyWheel1({
@@ -28,6 +30,7 @@ export default function LuckyWheel1({
   easing = "cubic-bezier(0.33,1,0.68,1)",
   spinning = false,
   setSpinning,
+  setWinPrizeVisible,
 }: LuckyWheelProps) {
   const segCount = segments.length;
   const segAngle = 360 / segCount;
@@ -74,6 +77,9 @@ export default function LuckyWheel1({
 
     setTimeout(() => {
       setSpinning?.(false);
+      if (setWinPrizeVisible) {
+        setWinPrizeVisible(true);
+      }
       if (onFinish) onFinish(segments[chosenIndex], chosenIndex);
     }, spinDuration * 1000);
   };
@@ -91,7 +97,7 @@ export default function LuckyWheel1({
         borderRadius: "50%",
         boxSizing: "content-box",
         background: "linear-gradient(180deg, #42FF9E 0%, #9DFFCC 19.45%)",
-
+        boxShadow: "0px 12px 0px 0px #4FB7815C",
         overflow: "hidden",
       }}
     >
@@ -104,11 +110,11 @@ export default function LuckyWheel1({
           transformOrigin: "center center",
         }}
       >
-        <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+        <svg width={radius * 2} height={radius * 2}>
           <g transform={`translate(${radius},${radius})`}>
             {segments.map((seg, i) => {
-              const segRadius = radius - 20;
-              const borderRadius = 52; // 💡 bán kính vòng border cách tâm 52px
+              const segRadius = radius - 40;
+              const borderRadius = 52;
               const startAngle = (i * segAngle * Math.PI) / 180;
               const endAngle = ((i + 1) * segAngle * Math.PI) / 180;
 
@@ -124,7 +130,6 @@ export default function LuckyWheel1({
               ].join(" ");
 
               const fillColor = seg.backgroundColor;
-              // const strokeColor = i % 2 === 0 ? "#FFD13E" : "#F3F3E9";
               const strokeColor = i % 2 === 0 ? "#FFD13E" : "";
 
               const d = [
@@ -140,7 +145,7 @@ export default function LuckyWheel1({
                 Math.sin((startAngle + endAngle) / 2) * segRadius * 0.6;
 
               const labelLength = seg.label.length;
-              const maxChars = 20; // tối đa 20 ký tự hiển thị
+              const maxChars = 20;
               const displayLabel =
                 labelLength > maxChars
                   ? seg.label.slice(0, maxChars - 3) + "..."
@@ -150,28 +155,14 @@ export default function LuckyWheel1({
               const fontSize =
                 labelLength <= 10
                   ? baseFontSize
-                  : Math.max(baseFontSize - (labelLength - 10) * 0.4, 8); // tối thiểu 8px
+                  : Math.max(baseFontSize - (labelLength - 10) * 0.4, 8);
 
               return (
                 <g key={seg.id}>
-                  {/* segment chính */}
-                  <path
-                    d={d}
-                    fill={fillColor}
-                    stroke="#E6E7E8"
-                    strokeWidth="2"
-                  />
-
-                  {/* border cách tâm 80px */}
-                  <path
-                    d={borderPath}
-                    fill="none"
-                    stroke={strokeColor}
-                    strokeWidth="4"
-                  />
+                  {/* Segment chính */}
+                  <path d={d} fill={fillColor} strokeWidth="0" />
 
                   {/* label */}
-                  {/* label — cho phép xuống dòng */}
                   <foreignObject
                     x={tx - 50}
                     y={ty - 50}
@@ -202,6 +193,25 @@ export default function LuckyWheel1({
                 </g>
               );
             })}
+
+            {/* Shadow viên ngoài vòng (layer 1) */}
+            <circle
+              cx={0}
+              cy={0}
+              r={radius - 40} // lớn hơn border 1 chút
+              fill="none"
+              stroke="#4FB7813C"
+              strokeWidth="15"
+            />
+            {/* Shadow viên ngoài vòng (layer 2) */}
+            <circle
+              cx={0}
+              cy={0}
+              r={radius - 42}
+              fill="none"
+              stroke="#4FB7815C"
+              strokeWidth="10"
+            />
           </g>
         </svg>
       </div>
@@ -220,12 +230,28 @@ export default function LuckyWheel1({
           top: "calc(50% - 10px)",
           transform: "translate(-50%, -50%)",
           borderRadius: "50%",
-          width: 61,
+          width: 106,
           cursor: spinning ? "not-allowed" : "pointer",
           zIndex: 10,
         }}
       >
-        <img src={PinWheel} className="h-full w-full" />
+        <div className="relative">
+          <img src={PinWheelBg2} className="h-full w-full" />
+
+          <div
+            className="absolute bottom-[14px] left-1/2 flex size-[86px] -translate-x-1/2 flex-col items-center justify-center rounded-full text-[19.35px] font-extrabold"
+            style={{
+              background:
+                "radial-gradient(50% 50% at 50% 50%, #1DC36D 0%, #81FEBD 100%)",
+              boxShadow: "0px 7.27px 0px 0px #30D37F",
+            }}
+          >
+            QUAY{" "}
+            <div className="pt-[2px] text-center text-[11px] font-medium text-white">
+              Còn <span className="text-[13px] font-bold">{1}</span> lượt
+            </div>
+          </div>
+        </div>
       </button>
     </div>
   );
