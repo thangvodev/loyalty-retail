@@ -9,6 +9,7 @@ import Game1Icon from "../../static/icons/game1-icon.png";
 import Game2Icon from "../../static/icons/game2-icon.png";
 import Game3Icon from "../../static/icons/game3-icon.png";
 import LeaderboardCard from "./leader-board-card";
+import { SharePopup } from "./share-popup";
 
 const Content = () => {
   const [days, setDays] = useState([
@@ -19,6 +20,7 @@ const Content = () => {
     { day: "Ngày 5", reward: "+100", checked: false },
     { day: "Ngày 6", reward: "+100", checked: false },
   ]);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const [showReward, setShowReward] = useState(false);
 
@@ -57,6 +59,7 @@ const Content = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      <SharePopup isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
 
       <div
         className="h-[130px] bg-green5"
@@ -80,7 +83,7 @@ const Content = () => {
         />
 
         <DailyCheckinCard days={days} onCheckin={handleCheckin} />
-        <RewardActions actions={actions} />
+        <RewardActions actions={actions} setIsModalOpen={setIsModalOpen} />
 
         <LeaderboardCard currentRank={5} players={players} />
 
@@ -105,7 +108,7 @@ const actions = [
     title: "Chia sẻ nhận thưởng",
     desc: "2/3 lượt chia sẻ, nhận 120 điểm",
     buttonText: "Chia sẻ",
-    path: "",
+    path: "share",
   },
   {
     icon: Game3Icon,

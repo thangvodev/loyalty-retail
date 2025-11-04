@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import GameIcon from "../../static/icons/game-icon.png";
 import { Divider } from "antd";
 import { useNavigate } from "react-router-dom";
+import { SharePopup } from "./share-popup";
 
 interface ActionItem {
   icon: string;
@@ -13,15 +14,22 @@ interface ActionItem {
 
 interface RewardActionsProps {
   actions: ActionItem[];
+  setIsModalOpen: any;
 }
 
-const RewardActions: React.FC<RewardActionsProps> = ({ actions }) => {
+const RewardActions: React.FC<RewardActionsProps> = ({
+  actions,
+  setIsModalOpen,
+}) => {
   const navigate = useNavigate();
   const handleClick = (item: ActionItem) => {
-    if (item.path) {
+    if (item.path === "share") {
+      setIsModalOpen(true);
+    } else if (item.path) {
       navigate(item.path);
     }
   };
+
   return (
     <div
       className="rounded-[12px] bg-white p-3"
