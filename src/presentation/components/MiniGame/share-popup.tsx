@@ -13,7 +13,7 @@ export const SharePopup: FC<Props> = ({ isModalOpen, setIsModalOpen }) => {
   const handleShare = () => {
     setIsModalOpen(false);
   };
-
+  // if (!isModalOpen) return;
   return (
     <>
       <Modal

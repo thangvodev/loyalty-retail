@@ -36,60 +36,65 @@ const Content = () => {
   };
 
   return (
-    <div className="relative z-[10] flex w-full flex-col gap-[20px] pb-[20px]">
-      {/* Overlay toàn màn hình khi nhận thưởng */}
-      <AnimatePresence>
-        {showReward && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/40"
-          >
-            <motion.div
-              initial={{ scale: 0.5, opacity: 0 }}
-              animate={{ scale: 1.2, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="flex items-center gap-1 text-[38px] font-bold text-white"
-            >
-              + 500 <img src={CoinIcon} className="size-[37px] min-w-[37px]" />
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-      <SharePopup isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+    <>
+      <div className="relative z-[10] flex w-full flex-col gap-[20px] pb-[20px]">
+        {/* Overlay toàn màn hình khi nhận thưởng */}
 
-      <div
-        className="h-[130px] bg-green5"
-        style={{
-          borderBottomLeftRadius: "200% 100px",
-          borderBottomRightRadius: "200% 100px",
-        }}
-      />
-      <div
-        className="flex flex-col gap-5 px-[16px] pt-[4px]"
-        style={{
-          transform: "translateY(-150px)", //130 + 20 gap
-        }}
-      >
-        <GameInfoCard
-          type="gold"
-          name="Minh Vy"
-          rank="5"
-          coin={500}
-          avatar={"https://i.pravatar.cc/150?img=8"}
+        <AnimatePresence>
+          {showReward && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/40"
+            >
+              <motion.div
+                initial={{ scale: 0.5, opacity: 0 }}
+                animate={{ scale: 1.2, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="flex items-center gap-1 text-[38px] font-bold text-white"
+              >
+                + 500{" "}
+                <img src={CoinIcon} className="size-[37px] min-w-[37px]" />
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <div
+          className="h-[130px] bg-green5"
+          style={{
+            borderBottomLeftRadius: "200% 100px",
+            borderBottomRightRadius: "200% 100px",
+          }}
         />
 
-        <DailyCheckinCard days={days} onCheckin={handleCheckin} />
-        <RewardActions actions={actions} setIsModalOpen={setIsModalOpen} />
+        <div
+          className="flex flex-col gap-5 px-[16px] pt-[4px]"
+          style={{
+            transform: "translateY(-150px)", //130 + 20 gap
+          }}
+        >
+          <GameInfoCard
+            type="gold"
+            name="Minh Vy"
+            rank="5"
+            coin={500}
+            avatar={"https://i.pravatar.cc/150?img=8"}
+          />
 
-        <LeaderboardCard currentRank={5} players={players} />
+          <DailyCheckinCard days={days} onCheckin={handleCheckin} />
+          <RewardActions actions={actions} setIsModalOpen={setIsModalOpen} />
 
-        <Achievement />
+          <LeaderboardCard currentRank={5} players={players} />
+
+          <Achievement />
+        </div>
       </div>
-    </div>
+      <SharePopup isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+    </>
   );
 };
 
