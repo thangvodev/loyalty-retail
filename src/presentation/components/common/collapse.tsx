@@ -1,15 +1,16 @@
 import React, { FC } from "react";
 import { CollapseProps, Collapse as OriginalCollapse } from "antd";
-import ChevronRight from "../../static/icons/chevron-right.png";
 import clsx from "clsx";
+import ChevronIcon from "../icons/ChevronIcon";
 
 const Collapse: FC<CollapseProps> = (props) => {
   return (
     <OriginalCollapse
       expandIcon={({ isActive }) => (
-        <img
-          src={ChevronRight}
-          className={clsx("", { "rotate-90": isActive })}
+        <ChevronIcon
+          className={clsx("size-[18px] object-contain p-[2px] text-gray6", {
+            "rotate-90": isActive,
+          })}
         />
       )}
       {...props}

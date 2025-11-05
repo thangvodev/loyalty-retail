@@ -4,7 +4,7 @@ import { Progress } from "antd";
 
 const RatingChart = () => {
   return (
-    <div className="flex items-center gap-[40px] pl-[16px] pr-[32px]">
+    <div className="flex items-center gap-[40px]">
       {/* Left */}
       <div className="flex flex-col gap-[12px]">
         <div className="flex items-center gap-[4px]">
@@ -25,7 +25,7 @@ const RatingChart = () => {
               </div>
               <Progress
                 percent={data[key].percent}
-                strokeColor="#00BFFF"
+                strokeColor="#4CBA81"
                 showInfo={false}
               />
               <div className="w-[20px] text-sm font-normal text-neutral5">

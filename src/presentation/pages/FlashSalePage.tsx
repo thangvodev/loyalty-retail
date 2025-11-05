@@ -11,7 +11,7 @@ const FlashSalePage = () => {
         title={
           (
             <div className="flex w-[calc(100%-80px)] items-center justify-between pr-[14px]">
-              <div>Flash sale</div>
+              <div className="text-base">Flash sale</div>
               <SearchNormalIcon className="size-[17.14px] text-white" />
             </div>
           ) as unknown as string
@@ -24,7 +24,7 @@ const FlashSalePage = () => {
         }
         textColor="white"
       />
-      <div className="bg-surface2 flex flex-1 overflow-auto hide-scrollbar">
+      <div className="flex flex-1 overflow-auto bg-surface2 hide-scrollbar">
         <FlashSalePageContent />
       </div>
     </Page>

@@ -18,7 +18,7 @@ export const Categories = () => {
       </div>
       <div>
         <Swiper
-          spaceBetween={32}
+          spaceBetween={16}
           slidesPerView={"auto"}
           className="h-full px-[16px]"
           pagination={true}
@@ -29,11 +29,11 @@ export const Categories = () => {
               key={index}
               className="!flex !w-[calc(100%-0px)] items-center pb-[24px]"
             >
-              <div className="flex w-full gap-[32px]">
+              <div className="flex w-full justify-between">
                 {Array.from({ length: 5 }).map((_, index) => (
                   <div
                     key={index}
-                    className="flex w-fit flex-col items-center gap-[3.56px]"
+                    className="flex w-fit shrink-0 flex-col items-center gap-[3.56px]"
                   >
                     <img
                       src={CategoryImg}

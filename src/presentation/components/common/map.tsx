@@ -2,9 +2,9 @@ import { divIcon, LatLngTuple } from "leaflet";
 import React, { FC } from "react";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import { renderToStaticMarkup } from "react-dom/server";
-import LocationPinIcon from "../../static/icons/location-pin-icon.png";
-import MapLocateIcon from "../../static/icons/map-locate-icon.png";
 import { Button } from "./button";
+import LocationMarkIcon from "../icons/LocationMarkIcon";
+import MapLocationIcon from "../icons/MapLocationIcon";
 
 export const Map: FC<Props> = ({ lat, long, centerButton = true }) => {
   const position = [lat, long] as LatLngTuple;
@@ -23,10 +23,7 @@ export const Map: FC<Props> = ({ lat, long, centerButton = true }) => {
       <Marker
         icon={divIcon({
           html: renderToStaticMarkup(
-            <img
-              src={LocationPinIcon}
-              className="-translate-x-1/2 -translate-y-1/2"
-            />,
+            <MapLocationIcon className="size-[48px] -translate-x-1/2 -translate-y-1/2 text-[#D94C51]" />,
           ),
           iconSize: [0, 0],
         })}
@@ -50,7 +47,7 @@ const RecenterButton = ({ position }: { position: LatLngTuple }) => {
 
   return (
     <Button.Icon
-      icon={<img src={MapLocateIcon} />}
+      icon={<LocationMarkIcon className="text-green6" />}
       onClick={handleRecenter}
       className="absolute right-[16px] top-[calc(100%-150px)] z-[999] size-[36px] !rounded-[8px] border border-stroke1 bg-white"
       style={{ boxShadow: "0px 1px 12px 0px #00000033" }}
