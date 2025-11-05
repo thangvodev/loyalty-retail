@@ -49,6 +49,34 @@ const Menu = () => {
         </div>
         <ChevronIcon className="size-[16px]" />
       </div>
+
+      <Divider className="m-0" />
+      <div
+        className="flex items-center justify-between"
+        onClick={() => navigate("/notify-setting")}
+      >
+        <div className="flex items-center gap-[12px]">
+          <div className="flex size-[40px] items-center justify-center rounded-full bg-orange5">
+            <OrderMenuFilledIcon className="text-white" />
+          </div>
+          <div className="text-sm font-medium">Cài đặt thông báo</div>
+        </div>
+        <ChevronIcon className="size-[16px]" />
+      </div>
+
+      <Divider className="m-0" />
+      <div
+        className="flex items-center justify-between"
+        onClick={() => navigate("/notification")}
+      >
+        <div className="flex items-center gap-[12px]">
+          <div className="flex size-[40px] items-center justify-center rounded-full bg-orange5">
+            <OrderMenuFilledIcon className="text-white" />
+          </div>
+          <div className="text-sm font-medium">Thông báo</div>
+        </div>
+        <ChevronIcon className="size-[16px]" />
+      </div>
     </div>
   );
 };

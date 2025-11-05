@@ -100,6 +100,7 @@ module.exports = {
         neutral6: "#747373",
         neutral7: "#525252",
         neutral8: "#535353",
+        neutral400: "#CACACA",
         neutral500: "#8E8E8E",
         neutralgray6: "#6F6F6F",
         accent6: "#1C9B47",

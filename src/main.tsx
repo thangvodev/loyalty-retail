@@ -39,6 +39,8 @@ import ShopPage from "./presentation/pages/ShopPage";
 import ProductDetailsPage from "./presentation/pages/ProductDetailsPage";
 import MiniGame from "./presentation/pages/MiniGame";
 import LuckyRawPage from "./presentation/pages/LuckyRawPage";
+import NotifySettingPage from "./presentation/pages/NotifySettingPage";
+import NotificationPage from "./presentation/pages/NotificationPage";
 
 const Layout = () => {
   return (
@@ -100,6 +102,18 @@ const router = createBrowserRouter(
         {
           path: "/lucky-draw",
           element: <LuckyRawPage />,
+        },
+        {
+          path: "notify-setting",
+          element: <NotifySettingPage />,
+        },
+        {
+          path: "notify-setting",
+          element: <NotifySettingPage />,
+        },
+        {
+          path: "notification",
+          element: <NotificationPage />,
         },
       ],
     },
