@@ -1,8 +1,6 @@
 import React from "react";
 import TransitionLink from "./transition-link";
 import HomeFilledIcon from "../icons/HomeFilledIcon";
-import UserIcon from "../icons/UserIcon";
-import UserFilledIcon from "../icons/UserFilledIcon";
 import HomeIcon from "../icons/HomeIcon";
 import ShoppingBagIcon from "../icons/ShoppingBagIcon";
 import TicketFilledIcon from "../icons/TicketFilledIcon";
@@ -46,7 +44,7 @@ const NAV_ITEMS = [
   },
   {
     name: "Đơn hàng",
-    path: "/promotion",
+    path: "/order",
     icon: ({ active }: { active: boolean }) =>
       active ? (
         <DocumentFilledIcon className="size-[20px] text-green6" />

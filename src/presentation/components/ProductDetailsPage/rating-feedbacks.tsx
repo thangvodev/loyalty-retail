@@ -9,10 +9,12 @@ import { StarFilled } from "@ant-design/icons";
 
 const Feedbacks = () => {
   return (
-    <>
-      <Filters />
-      <div className="flex flex-col gap-[12px] px-[16px]">
-        <Divider className="m-0" />
+    <div className="flex flex-col gap-[20px]">
+      <div className="flex flex-col gap-[12px]">
+        <div className="text-base font-medium">Tiêu chí đánh giá</div>
+        <Filters />
+      </div>
+      <div className="flex flex-col gap-[12px]">
         {Array.from({ length: 6 }).map((_, index) => (
           <React.Fragment key={index}>
             <div className="flex flex-col gap-[8px]">
@@ -41,54 +43,48 @@ const Feedbacks = () => {
               <div className="text-sm font-normal">
                 Chất lượng tốt, dịch vụ ổn, nhân viên nhiệt tình.
               </div>
-              <div className="flex flex-col gap-[8px]">
-                {/* Tags */}
-                <div className="flex gap-[12px]">
-                  <Tag
-                    color="#FFFFFF"
-                    className="m-0 rounded-[12px] !border-stroke3"
-                  >
-                    <div className="text-gray8">Dịch vụ tốt</div>
-                  </Tag>
-                  <Tag
-                    color="#FFFFFF"
-                    className="m-0 rounded-[12px] !border-stroke3"
-                  >
-                    <div className="text-gray8">Nhân viên nhiệt tình</div>
-                  </Tag>
-                </div>
-                {/* Service */}
-                <div className="flex items-center gap-[8px] rounded-[8px] bg-neutral2 p-[8px]">
-                  <div className="text-xs font-normal">Cắt, uốn duỗi</div>
-                </div>
+              {/* Tags */}
+              <div className="flex h-[22px] gap-[12px]">
+                <Tag
+                  color="#FFFFFF"
+                  className="m-0 flex items-center rounded-[12px] !border-stroke3"
+                >
+                  <div className="text-gray8">Dịch vụ tốt</div>
+                </Tag>
+                <Tag
+                  color="#FFFFFF"
+                  className="m-0 flex items-center rounded-[12px] !border-stroke3"
+                >
+                  <div className="text-gray8">Nhân viên nhiệt tình</div>
+                </Tag>
               </div>
             </div>
-            {index !== 6 ? <Divider className="m-0" /> : null}
+            {index < 5 ? <Divider className="m-0" /> : null}
           </React.Fragment>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
 const Filters = () => {
   return (
-    <div className="flex gap-[12px] pl-[6px]">
-      <Button
-        text={<div className="text-sm font-normal text-neutral8">Tất cả</div>}
-        className="flex h-[32px] flex-none items-center rounded-[8px] border border-stroke1 px-[12px]"
-      />
+    <div className="flex gap-[12px]">
       <Select
         defaultValue="5"
         options={ratings}
         colorBorder="transparent"
         className="overflow-hidden rounded-[8px] border border-stroke1"
       />
-      <Select
-        defaultValue="1"
-        options={services}
-        colorBorder="transparent"
-        className="overflow-hidden rounded-[8px] border border-stroke1"
+      <Button
+        text={<div className="text-xs font-normal text-gray8">Vải đẹp</div>}
+        className="flex h-[32px] flex-none items-center rounded-[8px] border border-stroke1 px-[12px]"
+      />
+      <Button
+        text={
+          <div className="text-xs font-normal text-gray8">Kiểu dáng đẹp</div>
+        }
+        className="flex h-[32px] flex-none items-center rounded-[8px] border border-stroke1 px-[12px]"
       />
     </div>
   );
@@ -151,16 +147,5 @@ const ratings = [
         <StarFilled className="text-base text-yellow5" />
       </div>
     ),
-  },
-];
-
-const services = [
-  {
-    value: "1",
-    label: <div className="text-sm font-normal text-neutral8">Uốn tóc</div>,
-  },
-  {
-    value: "2",
-    label: <div className="text-sm font-normal text-neutral8">Duỗi tóc</div>,
   },
 ];

@@ -29,7 +29,6 @@ export const RedeemFloat = () => {
           <div className="text-base font-normal text-white">Đổi quà ngay</div>
         }
         className="flex h-[43px] flex-1 items-center justify-center rounded-[24px] border border-[#FFFFFFAB] bg-green6"
-        onClick={() => navigate("/checkout")}
       />
     </div>
   );

@@ -12,7 +12,7 @@ const AccountPage = () => {
         title={
           (
             <div className="flex w-[calc(100%-90px)] justify-between">
-              <div>Tài khoản</div>
+              <div className="text-base">Tài khoản</div>
               <PhoneFilledIcon className="size-[24px] text-purple5" />
             </div>
           ) as unknown as string

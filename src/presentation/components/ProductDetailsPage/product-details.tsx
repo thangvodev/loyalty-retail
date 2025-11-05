@@ -22,29 +22,23 @@ Sản xuất: Việt Nam`}
 
 const DetailsTable = () => {
   return (
-    <div className="flex">
-      <div className="flex flex-1 flex-col">
-        {table.leftCol.map((label, index) => (
+    <div className="flex flex-1 flex-col">
+      {table.rows.map((row, index) => (
+        <div key={index} className="flex">
           <div
-            key={index}
-            className="border-[0.63px] border-gray2 bg-gray1 px-[8.15px] py-[6.27px]"
+            className="flex-1 border-[0.63px] border-gray2 bg-gray1 px-[8.15px] py-[6.27px]"
             style={{ border: "0.63px solid #E6E6E6" }}
           >
-            <div className="text-2xs font-normal">{label}</div>
+            <div className="text-2xs font-normal">{row[0]}</div>
           </div>
-        ))}
-      </div>
-      <div className="flex flex-1 flex-col">
-        {table.rightCol.map((label, index) => (
           <div
-            key={index}
-            className="border-[0.63px] border-gray2 bg-white px-[8.15px] py-[6.27px]"
+            className="flex-1 border-[0.63px] border-gray2 bg-white px-[8.15px] py-[6.27px]"
             style={{ border: "0.63px solid #E6E6E6" }}
           >
-            <div className="text-2xs font-normal">{label}</div>
+            <div className="text-2xs font-normal">{row[1]}</div>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   );
 };
@@ -52,30 +46,17 @@ const DetailsTable = () => {
 export { ProductDetails };
 
 const table = {
-  leftCol: [
-    "Hệ Điều Hành",
-    "Chipset",
-    "Bộ Nhớ",
-    "Màn hình chính",
-    "Màn hình phụ",
-    "Kết nối không dây",
-    "Cổng Kết Nối",
-    "Nguồn Cấp",
-    "MDM/TMS",
-    "Khác",
-    "Điều kiện môi trường",
-  ],
-  rightCol: [
-    "Android 13 | MDM",
-    "Rk3568 - Quad-core 2.0GHz, Cortex A55",
-    "4GB DDR, 64GB eMMC",
-    "15.6” IPS | Full HD | IK06",
-    "10.1” HD (1280*800)",
-    "WiFi/Bluetooth/Ethernet",
-    "4 USB Type A, 1 micro USB, 1 RJ11, 1 RJ45, 1 Audio Jack",
-    "12V/3A",
-    "Hệ thống quản trị thiết bị (Free)",
-    "1 Power Key",
-    "Nhiệt độ hoạt động: -5℃ ~ 45℃",
+  rows: [
+    ["Hệ Điều Hành", "Android 13 | MDM"],
+    ["Chipset", "Rk3568 - Quad-core 2.0GHz, Cortex A55"],
+    ["Bộ Nhớ", "4GB DDR, 64GB eMMC"],
+    ["Màn hình chính", "15.6” IPS | Full HD | IK06"],
+    ["Màn hình phụ", "10.1” HD (1280*800)"],
+    ["Kết nối không dây", "WiFi/Bluetooth/Ethernet"],
+    ["Cổng Kết Nối", "4 USB Type A, 1 micro USB, 1 RJ11, 1 RJ45, 1 Audio Jack"],
+    ["Nguồn Cấp", "12V/3A"],
+    ["MDM/TMS", "Hệ thống quản trị thiết bị (Free)"],
+    ["Khác", "1 Power Key"],
+    ["Điều kiện môi trường", "Nhiệt độ hoạt động: -5℃ ~ 45℃"],
   ],
 };

@@ -3,6 +3,7 @@ import { Banner } from "./banner";
 import { Details } from "./details";
 import { Title } from "./title";
 import { Promotions } from "./promotions";
+import { CartFloat } from "./cart-float";
 
 const Content = () => {
   return (
@@ -13,6 +14,7 @@ const Content = () => {
         <Promotions />
         <Details />
       </div>
+      <CartFloat />
     </div>
   );
 };

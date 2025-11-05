@@ -10,7 +10,7 @@ const ProfilePage = () => {
         title={
           (
             <div className="flex w-[calc(100%-80px)] justify-center">
-              <div>Thông tin tài khoản</div>
+              <div className="text-base">Thông tin tài khoản</div>
             </div>
           ) as unknown as string
         }

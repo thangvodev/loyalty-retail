@@ -41,6 +41,13 @@ import MiniGame from "./presentation/pages/MiniGame";
 import LuckyRawPage from "./presentation/pages/LuckyRawPage";
 import NotifySettingPage from "./presentation/pages/NotifySettingPage";
 import NotificationPage from "./presentation/pages/NotificationPage";
+import PromotionPage from "./presentation/pages/PromotionPage";
+import PointRedeemPage from "./presentation/pages/PointRedeemPage";
+import VoucherDetailsPage from "./presentation/pages/VoucherDetailsPage";
+import CheckoutPage from "./presentation/pages/CheckoutPage";
+import OrderSuccessPage from "./presentation/pages/OrderSuccessPage";
+import AddAddressPage from "./presentation/pages/AddAddressPage";
+import UserCurrentLocationPage from "./presentation/pages/UserCurrentLocationPage";
 
 const Layout = () => {
   return (
@@ -114,6 +121,34 @@ const router = createBrowserRouter(
         {
           path: "notification",
           element: <NotificationPage />,
+        },
+        {
+          path: "promotion",
+          element: <PromotionPage />,
+        },
+        {
+          path: "point-redeem",
+          element: <PointRedeemPage />,
+        },
+        {
+          path: "voucher-details",
+          element: <VoucherDetailsPage />,
+        },
+        {
+          path: "checkout",
+          element: <CheckoutPage />,
+        },
+        {
+          path: "order-success",
+          element: <OrderSuccessPage />,
+        },
+        {
+          path: "add-address",
+          element: <AddAddressPage />,
+        },
+        {
+          path: "current-location",
+          element: <UserCurrentLocationPage />,
         },
       ],
     },

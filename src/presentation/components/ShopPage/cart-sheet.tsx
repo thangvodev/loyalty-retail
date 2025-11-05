@@ -121,7 +121,7 @@ const ProductCard = () => {
               <div className="text-sm font-semibold text-red6">
                 {formatCurrency(199000)}
               </div>
-              <div className="text-2xs font-normal text-gray7">
+              <div className="text-2xs font-normal text-gray7 line-through">
                 {formatCurrency(250000)}
               </div>
             </div>

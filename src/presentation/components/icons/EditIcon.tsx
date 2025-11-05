@@ -3,32 +3,33 @@ import React from "react";
 const EditIcon = ({ className = "" }) => {
   return (
     <svg
-      width="18"
-      height="18"
-      viewBox="0 0 18 18"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
       <path
-        d="M8.25 1.5H6.75C3 1.5 1.5 3 1.5 6.75V11.25C1.5 15 3 16.5 6.75 16.5H11.25C15 16.5 16.5 15 16.5 11.25V9.75"
+        d="M11.05 3.00002L4.20835 10.2417C3.95002 10.5167 3.70002 11.0584 3.65002 11.4334L3.34169 14.1333C3.23335 15.1083 3.93335 15.775 4.90002 15.6084L7.58335 15.15C7.95835 15.0834 8.48335 14.8084 8.74169 14.525L15.5834 7.28335C16.7667 6.03335 17.3 4.60835 15.4584 2.86668C13.625 1.14168 12.2334 1.75002 11.05 3.00002Z"
         stroke="currentColor"
-        strokeWidth="1.125"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M12.0324 2.26495L6.12235 8.17495C5.89735 8.39995 5.67235 8.84245 5.62735 9.16495L5.30485 11.4224C5.18485 12.2399 5.76235 12.8099 6.57985 12.6974L8.83735 12.3749C9.15235 12.3299 9.59485 12.1049 9.82735 11.8799L15.7374 5.96995C16.7574 4.94995 17.2374 3.76495 15.7374 2.26495C14.2374 0.764945 13.0524 1.24495 12.0324 2.26495Z"
-        stroke="currentColor"
-        strokeWidth="1.125"
+        strokeWidth="1.25"
         strokeMiterlimit="10"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M11.1836 3.1123C11.6861 4.9048 13.0886 6.3073 14.8886 6.8173"
+        d="M9.90836 4.20837C10.2667 6.50837 12.1334 8.26671 14.45 8.50004"
         stroke="currentColor"
-        strokeWidth="1.125"
+        strokeWidth="1.25"
+        strokeMiterlimit="10"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M2.5 18.3334H17.5"
+        stroke="currentColor"
+        strokeWidth="1.25"
         strokeMiterlimit="10"
         strokeLinecap="round"
         strokeLinejoin="round"
