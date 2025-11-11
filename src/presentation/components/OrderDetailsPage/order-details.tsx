@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductImg from "../../static/images/product.jpg";
 import { formatCurrency } from "../../utils/helpers";
 import { Divider } from "antd";
@@ -7,10 +7,22 @@ import ChevronIcon from "../icons/ChevronIcon";
 import { CodeListSheet } from "./code-list-sheet";
 
 const OrderDetails = () => {
+  const [expanded, setExpanded] = useState<boolean>(false);
+
   return (
     <div className="flex flex-col overflow-hidden rounded-[12px] bg-white">
       <ProductList />
-      <Subtotal />
+      {expanded ? (
+        <Subtotal />
+      ) : (
+        <div
+          className="flex items-center gap-[4px] p-[12px]"
+          onClick={() => setExpanded(true)}
+        >
+          <div className="text-sm font-normal text-gray6">Xem thêm</div>
+          <ChevronIcon className="size-[11px] rotate-90 text-gray6" />
+        </div>
+      )}
     </div>
   );
 };

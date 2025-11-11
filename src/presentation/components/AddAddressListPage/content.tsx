@@ -1,8 +1,8 @@
 import React from "react";
-import { OrderTabs } from "./tabs";
+import { AddAddressForm } from "./add-form";
 
 const Content = () => {
-  return <OrderTabs />;
+  return <AddAddressForm />;
 };
 
 export default Content;

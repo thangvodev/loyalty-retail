@@ -22,7 +22,7 @@ const UserCurrentLocationPage = () => {
         }
         textColor="black"
       />
-      <div className="flex flex-1 overflow-auto bg-surface2">
+      <div className="flex flex-1 overflow-auto bg-white">
         <UserCurrentLocationPageMap />
       </div>
     </Page>

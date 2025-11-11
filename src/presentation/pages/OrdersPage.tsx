@@ -3,6 +3,7 @@ import { Header, Page } from "zmp-ui";
 import SearchNormalIcon from "../components/icons/SearchNormalIcon";
 import ArrowLeftIcon from "../components/icons/ArrowLeftIcon";
 import { OrdersPageContent } from "../components/OrdersPage";
+import { Footer } from "../components/common/footer";
 
 const OrdersPage = () => {
   return (
@@ -16,7 +17,7 @@ const OrdersPage = () => {
             </div>
           ) as unknown as string
         }
-        className="topbar h-auto flex-none !bg-white"
+        className="topbar no-border h-auto flex-none !bg-white"
         backIcon={
           <div className="absolute left-1/2 top-1/2 flex size-[16px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full">
             <ArrowLeftIcon className="size-full object-cover" />
@@ -27,6 +28,7 @@ const OrdersPage = () => {
       <div className="flex flex-1 overflow-auto bg-surface2">
         <OrdersPageContent />
       </div>
+      <Footer />
     </Page>
   );
 };

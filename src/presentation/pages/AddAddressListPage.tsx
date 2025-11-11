@@ -1,16 +1,16 @@
 import React from "react";
 import { Header, Page } from "zmp-ui";
 import ArrowLeftIcon from "../components/icons/ArrowLeftIcon";
-import { ProfilePageInformationContent } from "../components/ProfilePage";
+import { AddAddressListPageContent } from "../components/AddAddressListPage";
 
-const ProfilePage = () => {
+const AddAddressListPage = () => {
   return (
     <Page className="page-content relative flex flex-1 flex-col bg-white">
       <Header
         title={
           (
             <div className="flex w-[calc(100%-90px)] justify-between">
-              <div className="text-base">Thông tin cá nhân</div>
+              <div className="text-base">Thêm địa chỉ</div>
             </div>
           ) as unknown as string
         }
@@ -21,11 +21,11 @@ const ProfilePage = () => {
           </div>
         }
       />
-      <div className="flex-1 overflow-auto bg-white hide-scrollbar">
-        <ProfilePageInformationContent />
+      <div className="flex flex-1 flex-col overflow-auto bg-[#FAFBFC] hide-scrollbar">
+        <AddAddressListPageContent />
       </div>
     </Page>
   );
 };
 
-export default ProfilePage;
+export default AddAddressListPage;

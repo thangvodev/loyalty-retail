@@ -5,9 +5,8 @@ import { Divider } from "antd";
 
 const Content = () => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col pt-[16px]">
       <UserProfile />
-      <Divider className="m-0 border-[4px] border-[#F9F3F3]" />
       <Menu />
     </div>
   );

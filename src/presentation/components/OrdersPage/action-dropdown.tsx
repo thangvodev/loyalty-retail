@@ -1,11 +1,15 @@
 import { Dropdown, MenuProps } from "antd";
 import React from "react";
 import MenuDotIcon from "../icons/MenuDotIcon";
+import { EyeOutlined, WalletOutlined } from "@ant-design/icons";
 import WalletIcon from "../icons/WalletIcon";
 import CloseIcon from "../icons/CloseIcon";
 import PhoneCallingIcon from "../icons/PhoneCallingIcon";
+import { useNavigate } from "react-router-dom";
 
 const ActionDropdown = () => {
+  const navigate = useNavigate();
+
   const items: MenuProps["items"] = [
     {
       label: (
@@ -19,11 +23,21 @@ const ActionDropdown = () => {
     {
       label: (
         <div className="flex w-[152px] items-center justify-between">
+          <div className="text-sm font-normal">Theo dõi</div>
+          <EyeOutlined className="size-[14px] text-gray7" />
+        </div>
+      ),
+      onClick: () => navigate("/orders/1"),
+      key: "1",
+    },
+    {
+      label: (
+        <div className="flex w-[152px] items-center justify-between">
           <div className="text-sm font-normal">Liên hệ CSKH</div>
           <PhoneCallingIcon className="size-[14px] text-gray7" />
         </div>
       ),
-      key: "1",
+      key: "2",
     },
     {
       label: (
@@ -32,7 +46,7 @@ const ActionDropdown = () => {
           <CloseIcon className="size-[14px] text-red6" />
         </div>
       ),
-      key: "2",
+      key: "3",
     },
   ];
 

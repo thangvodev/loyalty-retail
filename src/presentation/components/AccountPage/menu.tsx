@@ -1,81 +1,74 @@
 import React from "react";
-import { Divider } from "antd";
 import { useNavigate } from "react-router-dom";
 import ChevronIcon from "../icons/ChevronIcon";
-import UserMenuFilledIcon from "../icons/UserMenuFilledIcon";
 import OrderMenuFilledIcon from "../icons/OrderMenuFilledIcon";
+import ProfileFilledIcon from "../icons/ProfileFilledIcon";
+import LocationIcon from "../icons/LocationIcon";
+import NotificationBingIcon from "../icons/NotificationBingIcon";
+import NotificationBingFilledIcon from "../icons/NotificationBingFilledIcon";
+import SupportIcon from "../icons/SupportIcon";
 
 const Menu = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col gap-[14px] p-[16px]">
+    <div className="flex flex-col gap-[10px] p-[16px]">
       <div
-        className="flex items-center justify-between"
+        className="flex items-center justify-between py-[12px]"
         onClick={() => navigate("/profile")}
       >
         <div className="flex items-center gap-[12px]">
-          <div className="flex size-[40px] items-center justify-center rounded-full bg-green6">
-            <UserMenuFilledIcon className="text-white" />
+          <div className="flex size-[24px] items-center justify-center">
+            <ProfileFilledIcon className="size-full text-green6" />
           </div>
-          <div className="text-sm font-medium">Thông tin tài khoản</div>
+          <div className="text-sm font-semibold">Thông tin cá nhân</div>
         </div>
-        <ChevronIcon className="size-[16px]" />
+        <ChevronIcon className="size-[16px] text-gray4" />
       </div>
-      <Divider className="m-0" />
       <div
-        className="flex items-center justify-between"
-        onClick={() => navigate("/order-history")}
+        className="flex items-center justify-between py-[12px]"
+        onClick={() => navigate("/address")}
       >
         <div className="flex items-center gap-[12px]">
-          <div className="flex size-[40px] items-center justify-center rounded-full bg-orange5">
-            <OrderMenuFilledIcon className="text-white" />
+          <div className="flex size-[24px] items-center justify-center">
+            <LocationIcon className="size-full text-green6" />
           </div>
-          <div className="text-sm font-medium">Đơn hàng</div>
+          <div className="text-sm font-semibold">Địa chỉ giao hàng</div>
         </div>
-        <ChevronIcon className="size-[16px]" />
+        <ChevronIcon className="size-[16px] text-gray4" />
       </div>
-
-      <Divider className="m-0" />
       <div
-        className="flex items-center justify-between"
-        onClick={() => navigate("/mini-game")}
-      >
-        <div className="flex items-center gap-[12px]">
-          <div className="flex size-[40px] items-center justify-center rounded-full bg-orange5">
-            <OrderMenuFilledIcon className="text-white" />
-          </div>
-          <div className="text-sm font-medium">UI Mini Game</div>
-        </div>
-        <ChevronIcon className="size-[16px]" />
-      </div>
-
-      <Divider className="m-0" />
-      <div
-        className="flex items-center justify-between"
+        className="flex items-center justify-between py-[12px]"
         onClick={() => navigate("/notify-setting")}
       >
         <div className="flex items-center gap-[12px]">
-          <div className="flex size-[40px] items-center justify-center rounded-full bg-orange5">
-            <OrderMenuFilledIcon className="text-white" />
+          <div className="flex size-[24px] items-center justify-center">
+            <NotificationBingFilledIcon className="size-full text-green6" />
           </div>
-          <div className="text-sm font-medium">Cài đặt thông báo</div>
+          <div className="text-sm font-semibold">Cài đặt thông báo</div>
         </div>
-        <ChevronIcon className="size-[16px]" />
+        <ChevronIcon className="size-[16px] text-gray4" />
       </div>
-
-      <Divider className="m-0" />
+      <div className="flex items-center justify-between py-[12px]">
+        <div className="flex items-center gap-[12px]">
+          <div className="flex size-[24px] items-center justify-center">
+            <SupportIcon className="size-full text-green6" />
+          </div>
+          <div className="text-sm font-semibold">Hỗ trợ CSKH</div>
+        </div>
+        <ChevronIcon className="size-[16px] text-gray4" />
+      </div>
       <div
-        className="flex items-center justify-between"
-        onClick={() => navigate("/notification")}
+        className="flex items-center justify-between py-[12px]"
+        onClick={() => navigate("/mini-game")}
       >
         <div className="flex items-center gap-[12px]">
-          <div className="flex size-[40px] items-center justify-center rounded-full bg-orange5">
-            <OrderMenuFilledIcon className="text-white" />
+          <div className="flex size-[24px] items-center justify-center">
+            <SupportIcon className="size-full text-green6" />
           </div>
-          <div className="text-sm font-medium">Thông báo</div>
+          <div className="text-sm font-semibold">Minigame</div>
         </div>
-        <ChevronIcon className="size-[16px]" />
+        <ChevronIcon className="size-[16px] text-gray4" />
       </div>
     </div>
   );

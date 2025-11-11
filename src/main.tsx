@@ -55,6 +55,8 @@ import GiftRedeemPage from "./presentation/pages/GiftRedeemPage";
 import GiftRedeemSuccessPage from "./presentation/pages/GiftRedeemSuccessPage";
 import OrderDetailsPage from "./presentation/pages/OrderDetailsPage";
 import OrdersPage from "./presentation/pages/OrdersPage";
+import AddressListPage from "./presentation/pages/AddressListPage";
+import AddAddressListPage from "./presentation/pages/AddAddressListPage";
 
 const Layout = () => {
   return (
@@ -96,6 +98,14 @@ const router = createBrowserRouter(
         {
           path: "profile",
           element: <ProfilePage />,
+        },
+        {
+          path: "address",
+          element: <AddressListPage />,
+        },
+        {
+          path: "user-location-form",
+          element: <AddAddressListPage />,
         },
         {
           path: "qr",
@@ -164,10 +174,6 @@ const router = createBrowserRouter(
         {
           path: "add-address",
           element: <AddAddressPage />,
-        },
-        {
-          path: "current-location",
-          element: <UserCurrentLocationPage />,
         },
         {
           path: "current-location",

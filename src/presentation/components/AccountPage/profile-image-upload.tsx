@@ -5,8 +5,9 @@ import {
   ImageUpload,
   UploadImage,
 } from "../common/image-upload";
-import EditIcon from "../../static/icons/edit-icon-blue.png";
+import EditIcon from "../../static/icons/edit-icon-green.png";
 import CloseFilledIcon from "../icons/CloseFilledIcon";
+import AddImgIcon from "../../static/icons/gallery-add.png";
 
 export const ProfileImageUpload: FC<Props> = ({ images, setImages }) => {
   const customItemRender: CustomItemRender = ({
@@ -21,7 +22,7 @@ export const ProfileImageUpload: FC<Props> = ({ images, setImages }) => {
     return (
       <div className="relative">
         <div
-          className="size-[80px] overflow-hidden rounded-full border-[2px] border-white"
+          className="size-[80px] overflow-hidden rounded-[25.6px]"
           onClick={actions.preview}
           style={{ boxShadow: " 0px 8px 13.33px 0px #89878733" }}
         >
@@ -31,7 +32,7 @@ export const ProfileImageUpload: FC<Props> = ({ images, setImages }) => {
         {/* Add image button */}
         {maxCount && maxCount === 1 ? (
           <div
-            className="absolute bottom-0 right-0 z-10 size-[20px] rounded-full bg-white p-[3px]"
+            className="absolute -bottom-[5px] -right-[5px] z-10 flex size-[28px] items-center justify-center rounded-[12px] bg-white p-[3px]"
             style={{ boxShadow: "0px 6.43px 17.14px 0px #0000001A" }}
             onClick={(e) => {
               e.stopPropagation();
@@ -43,7 +44,7 @@ export const ProfileImageUpload: FC<Props> = ({ images, setImages }) => {
               }
             }}
           >
-            <img src={EditIcon} alt="" className="size-full object-cover" />
+            <img src={EditIcon} alt="" className="size-[16px] object-cover" />
           </div>
         ) : null}
 
@@ -70,6 +71,14 @@ export const ProfileImageUpload: FC<Props> = ({ images, setImages }) => {
       setImages={setImages}
       customItemRender={customItemRender}
       maxCount={1}
+      uploadButton={
+        <div className="flex size-[80px] flex-col items-center justify-center gap-[3.2px] rounded-[9.6px] border border-dashed border-[#E1E1E1] px-[12px]">
+          <img src={AddImgIcon} alt="" className="size-[19px]a" />
+          <div className="text-center text-xs font-normal text-[#8E8E8E]">
+            Upload
+          </div>
+        </div>
+      }
     />
   );
 };
