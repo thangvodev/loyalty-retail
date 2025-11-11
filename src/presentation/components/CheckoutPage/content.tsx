@@ -1,7 +1,7 @@
 import React from "react";
 
 import { SubmitFloat } from "./submit-float";
-import CheckoutForm from "./checkout-form";
+import { CheckoutForm } from "./checkout-form";
 import { Form } from "../common/form";
 
 const Content = () => {

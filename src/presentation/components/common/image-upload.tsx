@@ -7,22 +7,31 @@ import {
 import React, { useEffect, useMemo, useState } from "react";
 import { Modal, Upload } from "antd";
 import { RequiredFields } from "../../utils/types";
-import { v4 as uuidv4 } from "uuid";
+
+function uuidv4(): string {
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+    const r = (Math.random() * 16) | 0;
+    const v = c === "x" ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
+}
+
 import CloseFilledIcon from "../icons/CloseFilledIcon";
 import AddCircleIcon from "../icons/AddCircleIcon";
-import AddImageIcon from "../../static/icons/gallery-add.png";
+import UploadIcon from "../icons/UploadIcon";
 
 function ImageUpload(props: UploadImageProps) {
   const { message } = App.useApp();
-  const { images, setImages, maxCount = 1 } = props;
+  const { images = [], setImages, maxCount = 1 } = props;
   const [fileImageMap, setFileImageMap] = useState<Record<string, string>>({});
 
   const imagesWithUid = useMemo(
     () =>
       images.map((image) => {
+        const uid = (image as UploadFile).uid ?? uuidv4();
         return {
           ...image,
-          uid: image.uid ?? uuidv4(),
+          uid,
         };
       }),
     [images],
@@ -54,11 +63,18 @@ function ImageUpload(props: UploadImageProps) {
     const imageUrl = fileImageMap[fileKey] || file.url || file.preview || "";
 
     return (
-      <div className="relative" onClick={actions.preview}>
-        <img src={imageUrl} className="rounded-[3.3px] object-cover" />
+      <div
+        className="relative flex max-h-full max-w-full"
+        onClick={actions.preview}
+      >
+        {/* Image */}
+        <img
+          src={imageUrl}
+          className="flex-1 rounded-[3.3px] object-cover object-center"
+        />
 
         {/* Edit image button */}
-        {props.maxCount === 1 ? (
+        {props.maxCount === 1 && props.editable ? (
           <div
             className="absolute bottom-0 right-0 z-10 translate-x-1/2 translate-y-1/2"
             style={{ boxShadow: "0px 4px 40px 0px #AEB5AF1F" }}
@@ -86,7 +102,7 @@ function ImageUpload(props: UploadImageProps) {
               actions.remove();
             }}
           >
-            <CloseFilledIcon className="size-[10px] text-white" />
+            <CloseFilledIcon className="size-[20px] text-white" />
           </div>
         ) : null}
       </div>
@@ -226,10 +242,10 @@ function UploadImg({
       >
         {props.fileListLength < props.maxCount
           ? props.uploadButton || (
-              <div className="flex size-[80px] flex-col items-center justify-center gap-[8px] border px-[12px]">
-                <img src={AddImageIcon} className="size-[28px] object-cover" />
-                <div className="text-center text-xs font-normal text-purple4">
-                  Tải hoặc chụp ảnh
+              <div className="flex h-[80px] w-[100px] flex-col items-center justify-center gap-[8px] rounded-[4px] border border-dashed border-gray3 px-[12px]">
+                <UploadIcon className="text-blueB60 size-[16px]" />
+                <div className="text-blueB60 text-center text-xs font-normal">
+                  Tải ảnh lên
                 </div>
               </div>
             )
@@ -259,10 +275,11 @@ export type CustomItemRender = (params: {
 
 type UploadImageProps = Omit<OriginalUploadProps, "itemRender"> & {
   images: UploadImage[] | UploadFile[];
-  setImages: React.Dispatch<React.SetStateAction<UploadImage[]>>;
+  setImages: (images: UploadImage[]) => void;
   maxCount?: OriginalUploadProps["maxCount"];
   uploadButton?: React.ReactNode;
   customItemRender?: CustomItemRender;
+  editable?: boolean;
 };
 
 type UploadProps = RequiredFields<

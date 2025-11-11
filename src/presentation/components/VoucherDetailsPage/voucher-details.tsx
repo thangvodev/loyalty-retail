@@ -1,13 +1,16 @@
 import { Divider } from "antd";
-import React from "react";
+import React, { FC } from "react";
 import ClockIcon from "../icons/ClockIcon";
+import QRImg from "../../static/images/qr.png";
+import { Button } from "../common/button";
+import { QrCodePopup } from "./qr-code-popup";
 
-export const VoucherDetails = () => {
+const VoucherDetails: TVoucherDetails = ({ status = "notRedeemed" }) => {
   return (
     <div className="flex -translate-y-[80px] flex-col gap-[12px] px-[20px]">
       {/* Brief information */}
       <div
-        className="flex flex-col gap-[8px] rounded-[12px] bg-white py-[8px]"
+        className="flex flex-col gap-[8px] overflow-hidden rounded-[12px] bg-white py-[8px]"
         style={{ boxShadow: "0px 4px 40px 0px #AEB5AF1F" }}
       >
         <div className="flex flex-col items-center gap-[8px]">
@@ -16,16 +19,75 @@ export const VoucherDetails = () => {
             Dành cho đơn hàng trên 1tr
           </div>
         </div>
-        <Divider dashed className="m-0" />
-        <div className="text-center text-[11px] font-normal text-gray6">
-          Mã giảm giá phát hành lúc 15:29, 20/05/2025
-        </div>
-        <div className="flex items-center justify-center gap-[4px]">
-          <ClockIcon className="size-[18px] text-red6" />
-          <div className="text-xs font-normal text-red6">
-            Hạn sử dụng: 22/07/2024
+        {/* QR code */}
+        {status === "notRedeemed" ? null : (
+          <div className="flex flex-col items-center gap-[4px]">
+            <div className="size-[120px] p-[5px]">
+              <QrCodePopup>
+                {({ open }) => (
+                  <img
+                    src={QRImg}
+                    alt=""
+                    className="size-full"
+                    onClick={open}
+                  />
+                )}
+              </QrCodePopup>
+            </div>
+            <div className="text-[11px] font-normal text-orange6">
+              * Đưa mã này cho thu ngân
+            </div>
+            <div className="flex items-center justify-center gap-[7px]">
+              <div className="text-xs font-normal text-gray7">
+                Mã khuyến mãi:
+              </div>
+              <div className="flex h-[21px] items-center justify-center rounded-[12px] bg-gray1 px-[8px]">
+                <div className="text-[11px] font-medium">QQI3443545</div>
+              </div>
+              <Button
+                text={
+                  <div className="text-[11px] font-medium text-orange6">
+                    Copy
+                  </div>
+                }
+                className="bg-white] h-[21px] flex-none rounded-[8px] border border-orange6 px-[8px]"
+              />
+            </div>
           </div>
+        )}
+        <div className="relative">
+          <div className="absolute left-0 top-0 size-[11px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-surface2" />
+          <div className="absolute right-0 top-0 size-[11px] -translate-y-1/2 translate-x-1/2 rounded-full bg-surface2" />
+          <Divider dashed className="m-0 border-[1.5px]" />
         </div>
+        {/* Time */}
+        {status === "active" ? (
+          <div className="flex items-center justify-center gap-[4px]">
+            <ClockIcon className="size-[18px] text-gray6" />
+            <div className="text-xs font-normal text-gray6">
+              Đã dùng: 24/07/2024
+            </div>
+          </div>
+        ) : status === "expired" ? (
+          <div className="flex items-center justify-center gap-[4px]">
+            <ClockIcon className="size-[18px] text-red6" />
+            <div className="text-xs font-normal text-red6">
+              Đã hết hạn sử dụng: 22/07/2024
+            </div>
+          </div>
+        ) : (
+          <>
+            <div className="text-center text-[11px] font-normal text-gray6">
+              Mã giảm giá phát hành lúc 15:29, 20/05/2025
+            </div>
+            <div className="flex items-center justify-center gap-[4px]">
+              <ClockIcon className="size-[18px] text-red6" />
+              <div className="text-xs font-normal text-red6">
+                Hạn sử dụng: 22/07/2024
+              </div>
+            </div>
+          </>
+        )}
       </div>
       {/* Policies */}
       <div
@@ -48,3 +110,9 @@ Mỗi khách hàng chỉ được sử dụng 1 lần duy nhất trong suốt th
     </div>
   );
 };
+
+export { VoucherDetails };
+
+type TVoucherDetails = FC<{
+  status: "notRedeemed" | "redeemed" | "active" | "expired";
+}>;

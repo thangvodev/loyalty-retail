@@ -20,11 +20,17 @@ export const Navigation = () => {
         <img src={FlashSaleIcon} alt="" className="size-[20px]" />
         <div className="text-2xs font-normal text-gray8">Flash sale</div>
       </div>
-      <div className="flex flex-col items-center gap-[4px]">
+      <div
+        className="flex flex-col items-center gap-[4px]"
+        onClick={() => navigate("/gift-wallet")}
+      >
         <img src={GiftIcon} alt="" className="size-[20px]" />
         <div className="text-2xs font-normal text-gray8">Ví quà</div>
       </div>
-      <div className="flex flex-col items-center gap-[4px]">
+      <div
+        className="flex flex-col items-center gap-[4px]"
+        onClick={() => navigate("/point-redeem")}
+      >
         <img src={GiftTradeIcon} alt="" className="size-[20px]" />
         <div className="text-2xs font-normal text-gray8">Đổi quà</div>
       </div>

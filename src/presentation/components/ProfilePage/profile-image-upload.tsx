@@ -6,7 +6,6 @@ import {
   UploadImage,
 } from "../common/image-upload";
 import EditIcon from "../../static/icons/edit-icon-blue.png";
-import AddImageIcon from "../../static/icons/gallery-add.png";
 import CloseFilledIcon from "../icons/CloseFilledIcon";
 
 export const ProfileImageUpload: FC<Props> = ({ images, setImages }) => {

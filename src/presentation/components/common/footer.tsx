@@ -44,7 +44,7 @@ const NAV_ITEMS = [
   },
   {
     name: "Đơn hàng",
-    path: "/order",
+    path: "/orders",
     icon: ({ active }: { active: boolean }) =>
       active ? (
         <DocumentFilledIcon className="size-[20px] text-green6" />

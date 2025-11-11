@@ -1,5 +1,5 @@
 import React from "react";
-import PresentIcon from "../icons/PresentIcon";
+import PresentIcon from "../icons/PresentIconFilled";
 import DeliveryIcon from "../icons/DeliveryIcon";
 import ShippingIcon from "../icons/ShippingIcon";
 import GiftIcon from "../../static/icons/gift-color.png";

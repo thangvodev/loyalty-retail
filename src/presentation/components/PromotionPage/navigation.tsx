@@ -57,7 +57,7 @@ const navigationItems = [
   {
     icon: TicketYellowIcon,
     label: "Ví quà",
-    to: "/point-redeem",
+    to: "/gift-wallet",
   },
   {
     icon: ConsoleIcon,

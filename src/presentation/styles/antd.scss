@@ -10,6 +10,7 @@
 }
 .ant-input-number-input-wrap {
   height: 100%;
+
   input {
     height: 100%;
   }
@@ -17,9 +18,18 @@
 
 // Upload
 .customSizedUpload {
+  min-height: 0;
   .ant-upload-list {
     height: 100%;
     min-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .ant-upload {
+    width: 100%;
+    height: 100%;
+    align-items: unset !important;
+    justify-content: unset !important;
   }
   .ant-upload.ant-upload-select {
     display: flex !important;
@@ -29,33 +39,58 @@
     border: none !important;
     order: 0 !important;
   }
-  .ant-upload {
-    width: 100%;
-    height: 100%;
-    align-items: unset !important;
-    justify-content: unset !important;
+
+  .ant-upload-hidden {
+    position: absolute;
   }
   .ant-upload-list-item-container {
     order: 1 !important;
-    width: fit-content !important;
-    height: fit-content !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    height: unset !important;
+    width: unset !important;
     .ant-upload-list-item {
       padding: 0 !important;
       display: flex;
       align-items: center;
       justify-content: center;
+      width: 100%;
+      height: 100%;
     }
+  }
+}
+
+// Upload.Drag
+.customSizedUploadDrag {
+  .ant-upload.ant-upload-drag {
+    background: transparent !important;
+  }
+  .ant-upload.ant-upload-btn {
+    padding: unset !important;
+  }
+}
+
+// Pagination
+.ant-pagination {
+  .ant-pagination-item-active {
+    border-color: transparent !important;
+    background-color: #ebf4ff;
   }
 }
 
 // Select
 .customSelect.ant-select {
   .ant-select-selector {
-    border: 0.75px solid #dde3dd !important;
-    border-radius: 8px;
+    border: 1px solid #d6d9dc !important;
+    border-radius: 4px;
+    padding: 12px;
+    width: 100%;
+    .ant-select-selection-wrap {
+      align-self: unset;
+    }
     .ant-select-selection-item,
     .ant-select-selection-placeholder {
-      font-size: 12px;
+      font-size: 14px;
     }
     .ant-select-selection-item {
       font-weight: 500;
@@ -63,9 +98,6 @@
   }
   .ant-select-item-option:not(:last-child) {
     border-bottom: 1px solid #f4f6f4;
-  }
-  .ant-select-selector {
-    width: 100%;
   }
 }
 
@@ -87,7 +119,6 @@
   .ant-radio-wrapper {
     width: 100%;
     margin-inline-end: 0;
-    align-items: center;
   }
   .ant-radio-label {
     padding-right: 0 !important;
@@ -125,12 +156,22 @@
       }
     }
   }
-  .ant-tabs-content-holder {
-    .ant-tabs-content {
+}
+.ant-tabs-content-holder {
+  .ant-tabs-content {
+    height: 100%;
+    .ant-tabs-tabpane {
       height: 100%;
-      .ant-tabs-tabpane {
-        height: 100%;
-      }
+    }
+  }
+}
+
+// Range picker
+.ant-picker-range {
+  .ant-picker-input {
+    flex: 1 1 0;
+    input {
+      text-align: center;
     }
   }
 }
