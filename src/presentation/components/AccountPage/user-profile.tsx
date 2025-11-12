@@ -1,18 +1,20 @@
-import React from "react";
-import CustomerImg from "../../static/images/customer.png";
+import React, { useState } from "react";
+import { UploadImage } from "../common/image-upload";
+import { ProfileImageUpload } from "./profile-image-upload";
+import GoldBg from "../../static/images/gold-bg.jpg";
 
 export const UserProfile = () => {
+  const [images, setImages] = useState<UploadImage[]>([]);
+
   return (
-    <div className="flex gap-[16px] px-[16px] py-[12px]">
-      <img
-        src={CustomerImg}
-        alt=""
-        className="size-[48px] rounded-full border-[1.2px] border-white object-cover"
-        style={{ boxShadow: "0px 4.8px 8px 0px #89878733" }}
-      />
-      <div className="flex flex-col gap-[4px]">
-        <div className="text-base font-semibold">Nguyễn Mỹ Linh</div>
-        <div className="text-sm font-normal text-[#7E7E7E]">0293439435</div>
+    <div className="flex flex-col items-center justify-center gap-[8px]">
+      <ProfileImageUpload images={images} setImages={setImages} />
+      <div className="flex flex-col items-center gap-[4px]">
+        <div className="text-sm font-semibold">Minh Vy</div>
+        <div className="relative flex h-[14px] w-[26px] items-center justify-center overflow-hidden rounded-[12px]">
+          <img src={GoldBg} alt="" className="absolute z-[0] size-full" />
+          <div className="z-[10] text-[8px] font-medium text-white">Gold</div>
+        </div>
       </div>
     </div>
   );

@@ -12,7 +12,6 @@ export const Points = () => {
       <div
         className="flex flex-1 items-center justify-center gap-[12px] rounded-[8px] bg-white py-[13px]"
         style={{ boxShadow: "-3px 0px 12px 0px #29574314" }}
-        onClick={() => navigate("/points")}
       >
         <img src={CoinIcon} className="size-[24px]" />
         <div className="flex flex-col gap-[2px]">
@@ -28,7 +27,7 @@ export const Points = () => {
       <div
         className="flex flex-1 items-center justify-center gap-[12px] rounded-[8px] bg-white py-[13px]"
         style={{ boxShadow: "3px 0px 12px 0px #29574314" }}
-        onClick={() => navigate("/points-redeem")}
+        onClick={() => navigate("/gift-wallet")}
       >
         <img src={PresentIcon} className="size-[24px]" />
         <div className="flex flex-col gap-[2px]">

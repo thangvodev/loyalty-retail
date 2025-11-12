@@ -48,6 +48,15 @@ import CheckoutPage from "./presentation/pages/CheckoutPage";
 import OrderSuccessPage from "./presentation/pages/OrderSuccessPage";
 import AddAddressPage from "./presentation/pages/AddAddressPage";
 import UserCurrentLocationPage from "./presentation/pages/UserCurrentLocationPage";
+import GiftWalletPage from "./presentation/pages/GiftWalletPage";
+import PointHistoryPage from "./presentation/pages/PointHistoryPage";
+import GiftDetailsPage from "./presentation/pages/GiftDetailsPage";
+import GiftRedeemPage from "./presentation/pages/GiftRedeemPage";
+import GiftRedeemSuccessPage from "./presentation/pages/GiftRedeemSuccessPage";
+import OrderDetailsPage from "./presentation/pages/OrderDetailsPage";
+import OrdersPage from "./presentation/pages/OrdersPage";
+import AddressListPage from "./presentation/pages/AddressListPage";
+import AddAddressListPage from "./presentation/pages/AddAddressListPage";
 
 const Layout = () => {
   return (
@@ -89,6 +98,14 @@ const router = createBrowserRouter(
         {
           path: "profile",
           element: <ProfilePage />,
+        },
+        {
+          path: "address",
+          element: <AddressListPage />,
+        },
+        {
+          path: "user-location-form",
+          element: <AddAddressListPage />,
         },
         {
           path: "qr",
@@ -135,8 +152,20 @@ const router = createBrowserRouter(
           element: <VoucherDetailsPage />,
         },
         {
+          path: "gift-details",
+          element: <GiftDetailsPage />,
+        },
+        {
           path: "checkout",
           element: <CheckoutPage />,
+        },
+        {
+          path: "orders",
+          element: <OrdersPage />,
+        },
+        {
+          path: "orders/:orderId",
+          element: <OrderDetailsPage />,
         },
         {
           path: "order-success",
@@ -149,6 +178,22 @@ const router = createBrowserRouter(
         {
           path: "current-location",
           element: <UserCurrentLocationPage />,
+        },
+        {
+          path: "gift-wallet",
+          element: <GiftWalletPage />,
+        },
+        {
+          path: "point-history",
+          element: <PointHistoryPage />,
+        },
+        {
+          path: "gift-redeem",
+          element: <GiftRedeemPage />,
+        },
+        {
+          path: "gift-redeem-success",
+          element: <GiftRedeemSuccessPage />,
         },
       ],
     },

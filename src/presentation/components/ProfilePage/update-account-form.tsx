@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { Form } from "../common/form";
 import { UploadImage } from "../common/image-upload";
-import { ProfileImageUpload } from "./profile-image-upload";
 import { Input } from "antd";
 import { Button } from "../common/button";
 import { Select } from "../common/select";
 
 const ProfileForm = () => {
   const [form] = Form.useForm();
-  const [images, setImages] = useState<UploadImage[]>([]);
 
   const initialValues = {
     phone: "0394358495",
@@ -19,10 +17,6 @@ const ProfileForm = () => {
   return (
     <Form form={form} initialValues={initialValues}>
       <div className="flex flex-col gap-[24px]">
-        {/* Profile image */}
-        <div className="flex items-center justify-center">
-          <ProfileImageUpload images={images} setImages={setImages} />
-        </div>
         {/* Other information */}
         <div className="flex flex-col gap-[14px]">
           <Form.Item
@@ -52,6 +46,17 @@ const ProfileForm = () => {
             />
           </Form.Item>
           <Form.Item
+            label="Email"
+            name="email"
+            labelCol={{ style: { padding: 0, fontSize: 12 } }}
+            style={{ marginBottom: 0 }}
+          >
+            <Input
+              placeholder="Nhập email"
+              className="h-[50px] rounded-[8px] border-gray2 text-xs"
+            />
+          </Form.Item>
+          <Form.Item
             label="Số điện thoại"
             name="phone"
             required
@@ -70,7 +75,7 @@ const ProfileForm = () => {
           text={
             <div className="text-base font-medium text-white">Lưu thay đổi</div>
           }
-          className="flex h-[50px] flex-none items-center justify-center rounded-[12px] bg-green6"
+          className="flex h-[50px] flex-none items-center justify-center rounded-[24px] bg-green6"
         />
       </div>
     </Form>

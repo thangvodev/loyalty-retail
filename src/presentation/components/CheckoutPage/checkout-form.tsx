@@ -56,7 +56,7 @@ const CheckoutForm: TCheckoutForm = ({ form }) => {
   );
 };
 
-export default CheckoutForm;
+export { CheckoutForm };
 
 type TCheckoutForm = FC<{
   form?: any;

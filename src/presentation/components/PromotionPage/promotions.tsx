@@ -7,7 +7,7 @@ import TicketOutlineIcon from "../../static/icons/ticket-outline.png";
 const Promotions = () => {
   return (
     <div className="flex flex-col gap-[12px]">
-      <div className="flex items-center justify-between px-[12px]">
+      <div className="flex items-center justify-between px-[16px]">
         <div className="text-lg font-medium">Ưu đãi nổi bật</div>
         <Button
           text={
@@ -16,7 +16,7 @@ const Promotions = () => {
           className="h-[22px] flex-none rounded-[24px] bg-green6 px-[6px]"
         />
       </div>
-      <div className="flex snap-x scroll-px-[12px] gap-[12px] overflow-auto px-[12px]">
+      <div className="flex snap-x scroll-px-[16px] gap-[12px] overflow-auto px-[16px]">
         {Array.from({ length: 10 }).map((_, index) => (
           <PromotionItem key={index} />
         ))}

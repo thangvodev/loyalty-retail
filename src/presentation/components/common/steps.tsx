@@ -53,7 +53,7 @@ function Steps({
     <div className="flex items-center justify-between">
       {items.map((item, index) => (
         <React.Fragment key={index}>
-          <div onClick={() => goTo(index)}>
+          <div onClick={() => !item.disabled && goTo(index)}>
             {/* Default render */}
             {render ? (
               render({ item, index, itemStatus: getCurItemStatus(index) })
@@ -124,7 +124,8 @@ type Props = {
 
 type ItemProps = {
   title: React.ReactNode;
-  content: React.ReactNode;
+  content?: React.ReactNode;
+  disabled?: boolean;
 };
 
 type Status = "active" | "inactive" | "completed" | "error";

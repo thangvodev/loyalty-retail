@@ -25,58 +25,61 @@ const ProductList = () => {
       {Array.from({ length: 2 }).map((_, index) => {
         return (
           <React.Fragment key={index}>
-            <div className="flex gap-[12px]">
-              <div className="relative size-[90px] overflow-hidden rounded-[6.75px]">
-                <img
-                  src={ProductImg}
-                  alt=""
-                  className="size-full object-cover object-top"
-                />
-                <div className="absolute inset-x-[8.5px] bottom-[6px] flex justify-center gap-[4px]">
-                  <div
-                    className="flex h-[11.5px] items-center justify-center whitespace-nowrap rounded-[40px] px-[2px] text-[5.63px] font-normal text-white"
-                    style={{
-                      background:
-                        "linear-gradient(270deg, #E89543 0%, #FFB76F 100%)",
-                    }}
-                  >
-                    Giảm 50%
-                  </div>
-                  <div className="flex h-[11.5px] items-center justify-center whitespace-nowrap rounded-[40px] border border-red5 bg-white px-[2px] text-[5.63px] font-normal text-red6">
-                    Giá membership
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col gap-[8px]">
-                <div className="flex flex-col gap-[4px]">
-                  <div className="text-sm font-normal">
-                    Set công sở BST Thu Đông
-                  </div>
-                  <div className="text-xs font-normal text-gray5">Basic</div>
-                  <div className="flex items-center gap-[4px]">
-                    <div className="text-sm font-semibold text-red6">
-                      {formatCurrency(199000)}
-                    </div>
-                    <div className="text-2xs font-normal text-gray7 line-through">
-                      {formatCurrency(250000)}
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-[5px]">
-                  <div className="flex size-[20px] items-center justify-center rounded-full bg-gray1">
-                    <div className="w-[5px] border-[1.13px] border-gray5" />
-                  </div>
-                  <div className="text-xs font-medium text-gray8">2</div>
-                  <div className="flex size-[20px] items-center justify-center rounded-full bg-gray1">
-                    <AddCircleFilledIcon className="size-[10px]" />
-                  </div>
-                </div>
-              </div>
-            </div>
+            <ProductListItem />
             {index < 2 ? <Divider className="m-0" /> : null}
           </React.Fragment>
         );
       })}
+    </div>
+  );
+};
+
+const ProductListItem = () => {
+  return (
+    <div className="flex gap-[12px]">
+      <div className="relative size-[90px] overflow-hidden rounded-[6.75px]">
+        <img
+          src={ProductImg}
+          alt=""
+          className="size-full object-cover object-top"
+        />
+        <div className="absolute inset-x-[8.5px] bottom-[6px] flex justify-center gap-[4px]">
+          <div
+            className="flex h-[11.5px] items-center justify-center whitespace-nowrap rounded-[40px] px-[2px] text-[5.63px] font-normal text-white"
+            style={{
+              background: "linear-gradient(270deg, #E89543 0%, #FFB76F 100%)",
+            }}
+          >
+            Giảm 50%
+          </div>
+          <div className="flex h-[11.5px] items-center justify-center whitespace-nowrap rounded-[40px] border border-red5 bg-white px-[2px] text-[5.63px] font-normal text-red6">
+            Giá membership
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-col gap-[8px]">
+        <div className="flex flex-col gap-[4px]">
+          <div className="text-sm font-normal">Set công sở BST Thu Đông</div>
+          <div className="text-xs font-normal text-gray5">Basic</div>
+          <div className="flex items-center gap-[4px]">
+            <div className="text-sm font-semibold text-red6">
+              {formatCurrency(199000)}
+            </div>
+            <div className="text-2xs font-normal text-gray7 line-through">
+              {formatCurrency(250000)}
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center gap-[5px]">
+          <div className="flex size-[20px] items-center justify-center rounded-full bg-gray1">
+            <div className="w-[5px] border-[1.13px] border-gray5" />
+          </div>
+          <div className="text-xs font-medium text-gray8">2</div>
+          <div className="flex size-[20px] items-center justify-center rounded-full bg-gray1">
+            <AddCircleFilledIcon className="size-[10px]" />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

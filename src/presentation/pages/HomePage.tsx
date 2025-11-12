@@ -7,8 +7,11 @@ import SearchNormalIcon from "../components/icons/SearchNormalIcon";
 import NotificationIcon from "../components/icons/NotificationBingFilledIcon";
 import ShoppingBagIcon from "../components/icons/ShoppingBagFilledIcon";
 import { Badge } from "../components/common/badge";
+import { useNavigate } from "react-router-dom";
 
 const HomePage: FC = () => {
+  const navigate = useNavigate();
+
   return (
     <Page className="page-content relative flex flex-1 flex-col bg-green6">
       <Header
@@ -20,7 +23,10 @@ const HomePage: FC = () => {
                 <div className="flex size-[24px] items-center justify-center rounded-full bg-white">
                   <SearchNormalIcon className="size-[17.14px] text-green6" />
                 </div>
-                <div className="flex size-[24px] items-center justify-center rounded-full bg-white">
+                <div
+                  className="flex size-[24px] items-center justify-center rounded-full bg-white"
+                  onClick={() => navigate("/notification")}
+                >
                   <Badge dot color="#F64C4C" dotSize={5}>
                     <NotificationIcon className="size-[17.14px] text-green6" />
                   </Badge>
@@ -36,7 +42,7 @@ const HomePage: FC = () => {
         showBackIcon={false}
         textColor="white"
       />
-      <div className="bg-surface2 flex-1 overflow-auto">
+      <div className="flex-1 overflow-auto bg-surface2">
         <HomePageContent />
       </div>
       <Footer />

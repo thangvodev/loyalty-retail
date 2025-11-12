@@ -1,7 +1,6 @@
 import React from "react";
 import { Header, Page } from "zmp-ui";
 import ArrowLeftIcon from "../components/icons/ArrowLeftIcon";
-import PhoneFilledIcon from "../components/icons/PhoneFilledIcon";
 import { AccountPageContent } from "../components/AccountPage";
 import { Footer } from "../components/common/footer";
 
@@ -13,7 +12,6 @@ const AccountPage = () => {
           (
             <div className="flex w-[calc(100%-90px)] justify-between">
               <div className="text-base">Tài khoản</div>
-              <PhoneFilledIcon className="size-[24px] text-purple5" />
             </div>
           ) as unknown as string
         }

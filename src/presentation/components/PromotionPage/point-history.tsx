@@ -2,10 +2,13 @@ import React from "react";
 import { Button } from "../common/button";
 import TicketIcon from "../../static/icons/ticket-sale.png";
 import CoinIcon from "../../static/icons/coin-gold.png";
+import { useNavigate } from "react-router-dom";
 
 const PointHistoryList = () => {
+  const navigate = useNavigate();
+
   return (
-    <div className="flex flex-col gap-[12px] px-[12px]">
+    <div className="flex flex-col gap-[12px] px-[16px]">
       <div className="flex items-center justify-between">
         <div className="text-lg font-medium">Lịch sử gần đây</div>
         <Button
@@ -13,6 +16,7 @@ const PointHistoryList = () => {
             <div className="text-2xs font-normal text-white">Xem tất cả</div>
           }
           className="h-[22px] flex-none rounded-[24px] bg-green6 px-[6px]"
+          onClick={() => navigate("/point-history")}
         />
       </div>
       <div className="flex flex-col gap-[12px] overflow-auto">
