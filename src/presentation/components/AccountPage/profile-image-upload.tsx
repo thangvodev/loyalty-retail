@@ -79,6 +79,7 @@ export const ProfileImageUpload: FC<Props> = ({ images, setImages }) => {
           </div>
         </div>
       }
+      className="h-[80px]"
     />
   );
 };

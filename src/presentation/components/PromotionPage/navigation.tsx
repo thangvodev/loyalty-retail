@@ -62,6 +62,6 @@ const navigationItems = [
   {
     icon: ConsoleIcon,
     label: "Minigame",
-    to: "/point-redeem",
+    to: "/mini-game",
   },
 ];

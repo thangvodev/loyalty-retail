@@ -58,18 +58,6 @@ const Menu = () => {
         </div>
         <ChevronIcon className="size-[16px] text-gray4" />
       </div>
-      <div
-        className="flex items-center justify-between py-[12px]"
-        onClick={() => navigate("/mini-game")}
-      >
-        <div className="flex items-center gap-[12px]">
-          <div className="flex size-[24px] items-center justify-center">
-            <SupportIcon className="size-full text-green6" />
-          </div>
-          <div className="text-sm font-semibold">Minigame</div>
-        </div>
-        <ChevronIcon className="size-[16px] text-gray4" />
-      </div>
     </div>
   );
 };

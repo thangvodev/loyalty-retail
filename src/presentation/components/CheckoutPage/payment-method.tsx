@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import { Radio } from "../common/radio";
-import { formatCurrency } from "../../utils/helpers";
 
 export const PaymentMethod: TDeliveryMethod = ({ value, onChange }) => {
   return (
