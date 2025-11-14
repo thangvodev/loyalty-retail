@@ -8,12 +8,12 @@ export const Categories = () => {
   return (
     <div className="flex flex-col gap-[12px]">
       <div className="flex items-center justify-between px-[16px]">
-        <div className="text-lg font-medium">Danh mục</div>
+        <div className="text-lg font-medium leading-[120%]">Danh mục</div>
         <Button
           text={
             <div className="text-2xs font-normal text-white">Xem tất cả</div>
           }
-          className="flex h-[22px] flex-none items-center justify-center rounded-[24px] bg-green6 px-[6px]"
+          className="flex h-[23px] flex-none items-center justify-center rounded-[24px] bg-green6 px-[6px]"
         />
       </div>
       <div>
@@ -40,7 +40,7 @@ export const Categories = () => {
                       alt=""
                       className="size-[48px] rounded-full border-[0.75px] border-gray1 bg-white object-cover"
                     />
-                    <div className="text-2xs font-normal text-gray8">
+                    <div className="text-[11px] font-normal text-gray8">
                       Áo khoác
                     </div>
                   </div>

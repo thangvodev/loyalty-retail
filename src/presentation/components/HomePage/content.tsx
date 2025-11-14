@@ -7,15 +7,15 @@ import { Products } from "./products";
 
 const Content = () => {
   return (
-    <div className="relative z-[10] flex w-full flex-col gap-[20px] pb-[20px]">
-      <div className="fixed inset-x-0 -z-[10] h-[80px] rounded-b-[4px] bg-green6" />
+    <div className="relative z-[10] flex w-full flex-col gap-[16px] bg-surface2 pb-[20px]">
+      <div className="absolute inset-x-0 -z-[10] h-[80px] rounded-b-[4px] bg-green6" />
       <div className="flex flex-col gap-[16px] px-[16px] pt-[16px]">
         <MemberCard type="gold" />
         <Navigation />
         <PromoBanner />
       </div>
       <Categories />
-      <div className="px-[16px]">
+      <div className="-mt-[12px] px-[16px]">
         <Products />
       </div>
     </div>

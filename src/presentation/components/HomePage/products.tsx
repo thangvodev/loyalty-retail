@@ -35,23 +35,25 @@ const ProductItem = () => {
         className="aspect-square w-full rounded-[8px] object-cover object-top"
       />
       <div className="flex flex-col gap-[4px]">
-        <div className="text-sm font-normal text-gray8">Váy công sở Gumac</div>
+        <div className="text-[15px] font-normal text-gray8">
+          Váy công sở Gumac
+        </div>
         <div className="flex items-center gap-[4px]">
           <div className="text-base font-semibold text-green5">
             {formatCurrency(199000)}
           </div>
-          <div className="text-2xs font-normal text-gray7 line-through">
+          <div className="text-[11px] font-normal text-gray7 line-through">
             {formatCurrency(250000)}
           </div>
         </div>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-[4px]">
-            <img src={CoinIcon} alt="" className="size-[12px]" />
+            <img src={CoinIcon} alt="" className="size-[14px]" />
             <div className="text-2xs font-normal text-gray7">+500 điểm</div>
           </div>
           <Button
             text={<div className="text-2xs font-normal text-white">Mua</div>}
-            className="flex w-[48px] flex-none items-center justify-center rounded-[24px] bg-green6 py-[5px]"
+            className="flex w-[48px] flex-none items-center justify-center rounded-[24px] bg-green6 py-[6px]"
           />
         </div>
       </div>

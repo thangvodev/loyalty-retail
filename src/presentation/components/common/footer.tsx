@@ -17,9 +17,9 @@ const NAV_ITEMS = [
     path: "/",
     icon: ({ active }: { active: boolean }) =>
       active ? (
-        <HomeFilledIcon className="size-[20px] text-green6" />
+        <HomeFilledIcon className="size-[24px] text-green6" />
       ) : (
-        <HomeIcon className="size-[20px] text-neutral5" />
+        <HomeIcon className="size-[24px] text-neutral5" />
       ),
   },
   {
@@ -27,9 +27,9 @@ const NAV_ITEMS = [
     path: "/category",
     icon: ({ active }: { active: boolean }) =>
       active ? (
-        <ShoppingBagIcon className="size-[20px] text-green6" />
+        <ShoppingBagIcon className="size-[24px] text-green6" />
       ) : (
-        <ShoppingBagIcon className="size-[20px] text-neutral5" />
+        <ShoppingBagIcon className="size-[24px] text-neutral5" />
       ),
   },
   {
@@ -37,9 +37,9 @@ const NAV_ITEMS = [
     path: "/promotion",
     icon: ({ active }: { active: boolean }) =>
       active ? (
-        <TicketFilledIcon className="size-[20px] text-green6" />
+        <TicketFilledIcon className="size-[24px] text-green6" />
       ) : (
-        <TicketIcon className="size-[20px] text-neutral5" />
+        <TicketIcon className="size-[24px] text-neutral5" />
       ),
   },
   {
@@ -47,9 +47,9 @@ const NAV_ITEMS = [
     path: "/orders",
     icon: ({ active }: { active: boolean }) =>
       active ? (
-        <DocumentFilledIcon className="size-[20px] text-green6" />
+        <DocumentFilledIcon className="size-[24px] text-green6" />
       ) : (
-        <DocumentIcon className="size-[20px] text-neutral5" />
+        <DocumentIcon className="size-[24px] text-neutral5" />
       ),
   },
   {
@@ -84,7 +84,7 @@ function Footer() {
             {({ isActive }) => (
               <div
                 className={clsx(
-                  "flex w-fit flex-col items-center border-t-2 border-transparent pt-[10px]",
+                  "flex w-fit flex-col items-center gap-[4px] border-t-2 border-transparent pt-[10px]",
                   { "!border-green7": isActive },
                 )}
               >
@@ -92,7 +92,7 @@ function Footer() {
                   <item.icon active={isActive} />
                 </div>
                 <div
-                  className={`text-2xs ${isActive ? "text-green6" : "text-gray5"}`}
+                  className={`text-[11px] ${isActive ? "text-green6" : "text-gray5"}`}
                 >
                   {item.name}
                 </div>
