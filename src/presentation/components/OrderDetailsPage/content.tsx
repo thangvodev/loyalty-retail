@@ -1,6 +1,6 @@
 import React from "react";
 import { SubmitFloat } from "./submit-float";
-import { CheckoutForm } from "./checkout-form";
+import { OrderDetails } from "./order-details";
 import { Form } from "../common/form";
 
 const status = "delivered";
@@ -10,7 +10,7 @@ const Content = () => {
 
   return (
     <div>
-      <CheckoutForm form={form} />
+      <OrderDetails form={form} />
       <SubmitFloat status={status} />
     </div>
   );

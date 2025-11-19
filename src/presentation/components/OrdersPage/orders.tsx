@@ -6,6 +6,7 @@ import { OrderStatusRender } from "./order-status";
 import ActionDropdown from "./action-dropdown";
 import { Button } from "../common/button";
 import FilterIcon from "../icons/FilterIcon";
+import { useNavigate } from "react-router-dom";
 
 const Orders: TOrders = ({ status, setCurrentTabType }) => {
   return (
@@ -33,8 +34,13 @@ const Orders: TOrders = ({ status, setCurrentTabType }) => {
 };
 
 const OrderItem: TOrderItem = ({ status }) => {
+  const navigate = useNavigate();
+
   return (
-    <div className="flex flex-col rounded-[12px] border border-gray1 bg-white">
+    <div
+      className="flex flex-col rounded-[12px] border border-gray1 bg-white"
+      onClick={() => navigate("/orders/1")}
+    >
       <div className="flex items-center justify-between px-[12px] py-[8px]">
         <div className="text-sm font-normal text-gray7">Mã đơn: #12434</div>
         <div className="flex items-center gap-[12px]">

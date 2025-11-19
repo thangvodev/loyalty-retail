@@ -62,9 +62,11 @@ const RatingSheetCompleted: FC<Props> = ({ children }) => {
                   <ProductItem />
                   <Divider className="m-0" />
                   <div className="flex flex-col gap-[8px]">
-                    <div className="text-xs font-normal">Đánh giá đơn hàng</div>
+                    <div className="text-[15px] font-normal">
+                      Đánh giá đơn hàng
+                    </div>
                     <div className="flex flex-col gap-[8px]">
-                      <Rate value={3} size={16} color="#EDF03C" disabled />
+                      <Rate value={3} size={24} color="#EDF03C" disabled />
                       {/* Tags */}
                       <div className="flex gap-[4px]">
                         <div className="flex h-[22px] items-center justify-center rounded-[12px] border border-stroke3 px-[8px] text-xs font-normal text-gray8">

@@ -25,7 +25,10 @@ const Products = () => {
       {!expanded ? (
         <div
           className="flex items-center gap-[4px]"
-          onClick={() => setExpanded(true)}
+          onClick={(e) => {
+            e.stopPropagation();
+            setExpanded(true);
+          }}
         >
           <div className="text-sm font-normal text-gray6">Xem thêm</div>
           <ChevronIcon className="size-[11px] rotate-90 text-gray6" />

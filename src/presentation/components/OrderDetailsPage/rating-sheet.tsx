@@ -1,4 +1,4 @@
-import { CloseOutlined, StarOutlined } from "@ant-design/icons";
+import { CloseOutlined, StarFilled, StarOutlined } from "@ant-design/icons";
 import React, { FC, useState } from "react";
 import { createPortal } from "react-dom";
 import { Sheet } from "zmp-ui";
@@ -77,15 +77,22 @@ const RatingSheet: FC<Props> = ({ children }) => {
                     >
                       <ProductItem />
                       <Divider className="m-0" />
-
                       <Form.Item
-                        label="Đánh giá đơn hàng"
+                        label={
+                          <div className="text-[15px]">Đánh giá đơn hàng</div>
+                        }
                         layout="vertical"
-                        labelCol={{ className: "!p-0" }}
+                        labelCol={{ className: "!p-0 !pb-[12px]" }}
                         name={[field.name, "rating"]}
                         style={{ margin: 0 }}
                       >
-                        <Rate size={16} character={<StarOutlined />} />
+                        <Rate
+                          size={24}
+                          color="#EDF03C"
+                          character={({ value = 0, index = 0 }) =>
+                            index < value ? <StarFilled /> : <StarOutlined />
+                          }
+                        />
                       </Form.Item>
                       <Form.Item
                         label={<div className="text-xs">Nhận xét của bạn</div>}

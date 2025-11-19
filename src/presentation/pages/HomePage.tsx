@@ -38,11 +38,11 @@ const HomePage: FC = () => {
             </div>
           ) as unknown as string
         }
-        className="topbar no-border h-auto flex-none !bg-green6 !pb-[18px] !pl-4 !pt-[18px]"
+        className="topbar no-border h-auto flex-none !bg-green6 !pb-[18px] !pl-4 !pt-[10px]"
         showBackIcon={false}
         textColor="white"
       />
-      <div className="flex-1 overflow-auto bg-surface2">
+      <div className="flex-1 overflow-auto bg-gradient-to-b from-green6 from-50% to-surface2 to-50%">
         <HomePageContent />
       </div>
       <Footer />

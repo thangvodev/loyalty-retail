@@ -12,7 +12,7 @@ const Content = () => {
       <Categories />
       <div className="flex min-h-0 flex-1 flex-col">
         <div className="flex min-h-0 flex-1 gap-[12px]">
-          <div className="h-full w-[66px] overflow-auto hide-scrollbar">
+          <div className="h-full w-[66px] overflow-auto overscroll-contain rounded-tr-[12px] bg-white hide-scrollbar">
             <SubCategories />
           </div>
           <div className="flex-1 overflow-auto">
