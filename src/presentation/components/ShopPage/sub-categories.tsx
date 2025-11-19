@@ -6,7 +6,7 @@ const SubCategories = () => {
 
   return (
     <div
-      className="flex shrink-0 flex-col rounded-tr-[12px] bg-white pt-[12px]"
+      className="flex shrink-0 flex-col pt-[12px]"
       style={{ boxShadow: "4px 0px 12px 0px #D0D5D838" }}
     >
       {Array.from({ length: 20 }).map((_, index) => (

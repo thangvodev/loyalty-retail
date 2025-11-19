@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const ProductList = () => {
   return (
-    <div className="grid grid-cols-2 gap-[12px] pb-[12px]">
+    <div className="grid grid-cols-2 gap-[12px] pb-[12px] pr-[16px]">
       {Array.from({ length: 10 }).map((_, index) => (
         <ProductListItem key={index} />
       ))}
@@ -23,7 +23,7 @@ const ProductListItem = () => {
       style={{ boxShadow: "0px 4px 12px 0px #DAE9EC87" }}
       onClick={() => navigate("/products/1")}
     >
-      <div className="relative size-[135px] overflow-hidden rounded-[12px]">
+      <div className="relative aspect-square size-full overflow-hidden rounded-[12px]">
         <div className="absolute right-[8px] top-[8px]">
           <AddCircleFilledIcon className="size-[28px] rounded-full border border-white bg-green6 text-white" />
         </div>

@@ -28,7 +28,7 @@ const RatingDetails: TRatingDetails = ({ rated }) => {
       </div>
       <div className="flex flex-col gap-[8px]">
         <ProductItem />
-        <Rate value={3} size={16} color="#EDF03C" disabled />
+        <Rate value={3} size={24} color="#EDF03C" disabled />
         <div className="flex gap-[4px]">
           <div className="flex h-[22px] items-center justify-center rounded-[12px] border border-stroke3 px-[8px] text-xs font-normal text-gray8">
             Vải đẹp
