@@ -1,5 +1,4 @@
 import React, { useRef, useState } from "react";
-import PinWheel from "../../static/images/pin-wheel.png";
 import PinWheelBg2 from "../../static/images/pin-whell-bg-2.png";
 
 type Segment = {
@@ -7,6 +6,8 @@ type Segment = {
   label: string;
   backgroundColor: string;
   textColor: string;
+  prefix?: React.ReactNode;
+  suffix?: React.ReactNode;
 };
 
 type LuckyWheelProps = {
@@ -16,8 +17,6 @@ type LuckyWheelProps = {
   onFinish?: (segment: Segment, index: number) => void;
   winnerIndex?: number | null;
   easing?: string;
-  spinning?: boolean;
-  setSpinning?: (v: boolean) => void;
   setWinPrizeVisible?: (v: boolean) => void;
 };
 
@@ -28,14 +27,13 @@ export default function LuckyWheel1({
   onFinish,
   winnerIndex = null,
   easing = "cubic-bezier(0.33,1,0.68,1)",
-  spinning = false,
-  setSpinning,
   setWinPrizeVisible,
 }: LuckyWheelProps) {
   const segCount = segments.length;
   const segAngle = 360 / segCount;
   const wheelRef = useRef<HTMLDivElement | null>(null);
   const spinCountRef = useRef(0);
+  const isSpinningRef = useRef(false);
 
   // ✅ Chuẩn hóa màu (#fff → #ffffff)
   const normalizeColor = (color: string) => {
@@ -54,15 +52,15 @@ export default function LuckyWheel1({
 
   const getTargetRotationForIndex = (index: number) => {
     const centerAngle = index * segAngle + segAngle / 2;
-    const target = 360 - (centerAngle - 90);
-    return (target + 360) % 360;
+    const target = (270 - centerAngle + 360) % 360;
+    return target;
   };
 
   const spin = (forcedIndex?: number | null) => {
-    if (spinning) return;
+    if (isSpinningRef.current) return;
     if (forcedIndex == null) return;
 
-    setSpinning?.(true);
+    isSpinningRef.current = true;
 
     const chosenIndex = forcedIndex;
     const targetBase = getTargetRotationForIndex(chosenIndex);
@@ -76,7 +74,7 @@ export default function LuckyWheel1({
     el.style.transform = `rotate(${totalRotation}deg)`;
 
     setTimeout(() => {
-      setSpinning?.(false);
+      isSpinningRef.current = false;
       if (setWinPrizeVisible) {
         setWinPrizeVisible(true);
       }
@@ -85,7 +83,14 @@ export default function LuckyWheel1({
   };
 
   const radius = size / 2;
-  const fontSize = Math.max(12, size / 22);
+
+  const getFontSize = (text: string) => {
+    const textLength = text.length;
+
+    if (textLength <= 10) return 25;
+    if (textLength <= 15) return 16;
+    return 12;
+  };
 
   return (
     <div
@@ -144,18 +149,7 @@ export default function LuckyWheel1({
               const ty =
                 Math.sin((startAngle + endAngle) / 2) * segRadius * 0.6;
 
-              const labelLength = seg.label.length;
-              const maxChars = 20;
-              const displayLabel =
-                labelLength > maxChars
-                  ? seg.label.slice(0, maxChars - 3) + "..."
-                  : seg.label;
-
-              const baseFontSize = 13;
-              const fontSize =
-                labelLength <= 10
-                  ? baseFontSize
-                  : Math.max(baseFontSize - (labelLength - 10) * 0.4, 8);
+              const fontSize = getFontSize(seg.label);
 
               return (
                 <g key={seg.id}>
@@ -164,9 +158,9 @@ export default function LuckyWheel1({
 
                   {/* label */}
                   <foreignObject
-                    x={tx - 50}
+                    x={tx - 70}
                     y={ty - 50}
-                    width={100}
+                    width={120}
                     height={100}
                     transform={`rotate(${i * segAngle + segAngle / 2}, ${tx}, ${ty})`}
                   >
@@ -175,9 +169,8 @@ export default function LuckyWheel1({
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        textAlign: "center",
-                        fontWeight: 700,
-                        fontSize: `${fontSize}px`,
+                        fontSize: fontSize,
+                        textAlign: "left",
                         color: seg.textColor,
                         width: "100%",
                         height: "100%",
@@ -187,7 +180,9 @@ export default function LuckyWheel1({
                         padding: "0 2px",
                       }}
                     >
-                      {displayLabel}
+                      {seg.prefix}
+                      {seg.label}
+                      {seg.suffix}
                     </div>
                   </foreignObject>
                 </g>
@@ -220,10 +215,8 @@ export default function LuckyWheel1({
 
       <button
         onClick={() => {
-          const random = Math.floor(Math.random() * segments.length);
-          spin(random ?? null);
+          spin(winnerIndex ?? null);
         }}
-        disabled={spinning}
         style={{
           position: "absolute",
           left: "50%",
@@ -231,7 +224,6 @@ export default function LuckyWheel1({
           transform: "translate(-50%, -50%)",
           borderRadius: "50%",
           width: 106,
-          cursor: spinning ? "not-allowed" : "pointer",
           zIndex: 10,
         }}
       >

@@ -32,21 +32,6 @@ export default function LuckyWheel1({
   const spinCountRef = useRef(0);
   const isSpinningRef = useRef(false);
 
-  // ✅ Chuẩn hóa màu (#fff → #ffffff)
-  const normalizeColor = (color: string) => {
-    if (/^#[0-9A-Fa-f]{3}$/.test(color)) {
-      return (
-        "#" +
-        color
-          .substring(1)
-          .split("")
-          .map((c) => c + c)
-          .join("")
-      );
-    }
-    return color;
-  };
-
   const getTargetRotationForIndex = (index: number) => {
     const centerAngle = index * segAngle + segAngle / 2;
     const target = (270 - centerAngle + 360) % 360;
@@ -77,7 +62,6 @@ export default function LuckyWheel1({
   };
 
   const radius = size / 2;
-  const fontSize = Math.max(12, size / 22);
 
   return (
     <div

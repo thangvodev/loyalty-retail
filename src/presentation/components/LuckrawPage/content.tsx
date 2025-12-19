@@ -3,6 +3,7 @@ import LuckyWheel from "./lucky-wheel";
 import BgLucky1 from "../../static/images/bg-;ucky-1.png";
 import BgLucky2 from "../../static/images/bg-lucky-2.png";
 import BgLuckyCoin from "../../static/images/bg-lucky-coin.png";
+import CoinIcon from "../../static/icons/coin-gold.png";
 import LuckyWheel1 from "./lucky-wheel-1";
 import WinPrizeModal from "./win-prize-modal";
 
@@ -11,6 +12,8 @@ interface Segment {
   label: string;
   backgroundColor: string;
   textColor: string;
+  prefix?: React.ReactNode;
+  suffix?: React.ReactNode;
 }
 
 const Content: React.FC = () => {
@@ -19,7 +22,7 @@ const Content: React.FC = () => {
   const [winnerId, setWinnerId] = useState<number | null>(1);
   const [pendingResult, setPendingResult] = useState<string | null>(null);
   const [result, setResult] = useState<string | null>(null);
-  const [optionLuckyDraw, setOptionLuckyDraw] = useState<number>(2);
+  const [optionLuckyDraw, setOptionLuckyDraw] = useState<number>(1);
 
   const wheelRef = useRef<HTMLDivElement>(null);
   const [winPrizeVisible, setWinPrizeVisible] = useState(false);
@@ -122,7 +125,7 @@ const Content: React.FC = () => {
 
 export default Content;
 
-const fakeSegment1 = [
+const fakeSegment1: Segment[] = [
   {
     id: 1,
     label: "Voucher 15%",
@@ -134,6 +137,7 @@ const fakeSegment1 = [
     label: "100",
     backgroundColor: "#5CE59E",
     textColor: "#FFFFFF",
+    suffix: <img src={CoinIcon} className="ml-[5px] size-[20px]" />,
   },
   {
     id: 3,
@@ -146,18 +150,21 @@ const fakeSegment1 = [
     label: "300",
     backgroundColor: "#5CE59E",
     textColor: "#FFFFFF",
+    suffix: <img src={CoinIcon} className="ml-[5px] size-[20px]" />,
   },
   {
     id: 5,
     label: "1x Gối kê cổ cam đáng yêu",
     backgroundColor: "#EBFFF5",
     textColor: "#66ECA7",
+    prefix: <img src={CoinIcon} className="mr-[5px] size-[20px]" />,
   },
   {
     id: 6,
     label: "500",
     backgroundColor: "#5CE59E",
     textColor: "#FFFFFF",
+    suffix: <img src={CoinIcon} className="ml-[5px] size-[20px]" />,
   },
   {
     id: 7,
@@ -170,10 +177,11 @@ const fakeSegment1 = [
     label: "1x Gối kê cổ cam đáng yêu",
     backgroundColor: "#5CE59E",
     textColor: "#FFFFFF",
+    prefix: <img src={CoinIcon} className="mr-[5px] size-[20px]" />,
   },
 ];
 
-const fakeSegment2 = [
+const fakeSegment2: Segment[] = [
   {
     id: 1,
     label: "50",
