@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useMemo } from "react";
 import LuckyWheel from "./lucky-wheel";
 import BgLucky1 from "../../static/images/bg-;ucky-1.png";
 import BgLucky2 from "../../static/images/bg-lucky-2.png";
@@ -16,22 +16,13 @@ interface Segment {
 const Content: React.FC = () => {
   const [segments, setSegments] = useState<Segment[]>([]);
 
-  const [spinning, setSpinning] = useState(false);
-  const [winnerIndex, setWinnerIndex] = useState<number | null>(null);
+  const [winnerId, setWinnerId] = useState<number | null>(1);
   const [pendingResult, setPendingResult] = useState<string | null>(null);
   const [result, setResult] = useState<string | null>(null);
-  const [optionLuckyDraw, setOptionLuckyDraw] = useState<number>(1);
+  const [optionLuckyDraw, setOptionLuckyDraw] = useState<number>(2);
 
   const wheelRef = useRef<HTMLDivElement>(null);
   const [winPrizeVisible, setWinPrizeVisible] = useState(false);
-
-  const handleRandomResult = () => {
-    if (segments.length === 0) return;
-    const random = Math.floor(Math.random() * segments.length);
-    setPendingResult(segments[random].label);
-    setWinnerIndex(random);
-    setResult(null);
-  };
 
   useEffect(() => {
     if (optionLuckyDraw === 1) {
@@ -41,14 +32,15 @@ const Content: React.FC = () => {
     }
   }, [optionLuckyDraw]);
 
-  const handleSpin = () => {
-    if (winnerIndex === null || spinning) return;
-    setSpinning(true);
-    setTimeout(() => {
-      setSpinning(false);
-      setResult(segments[winnerIndex].label);
-    }, 4000); // thời gian quay
-  };
+  const winnerIndex = useMemo(() => {
+    let index;
+    if (optionLuckyDraw === 1) {
+      index = fakeSegment1.findIndex((seg) => seg.id === winnerId);
+    } else {
+      index = fakeSegment2.findIndex((seg) => seg.id === winnerId);
+    }
+    return index != -1 ? index : null;
+  }, [winnerId]);
 
   return (
     <div
@@ -97,7 +89,6 @@ const Content: React.FC = () => {
             <LuckyWheel1
               size={600}
               segments={segments}
-              spinning={spinning}
               winnerIndex={winnerIndex}
               setWinPrizeVisible={setWinPrizeVisible}
             />
@@ -112,7 +103,6 @@ const Content: React.FC = () => {
             <LuckyWheel
               size={320}
               segments={segments}
-              spinning={spinning}
               winnerIndex={winnerIndex}
             />
           </div>
@@ -132,7 +122,7 @@ const Content: React.FC = () => {
 
 export default Content;
 
-const fakeSegment1: any = [
+const fakeSegment1 = [
   {
     id: 1,
     label: "Voucher 15%",
@@ -183,7 +173,7 @@ const fakeSegment1: any = [
   },
 ];
 
-const fakeSegment2: any = [
+const fakeSegment2 = [
   {
     id: 1,
     label: "50",

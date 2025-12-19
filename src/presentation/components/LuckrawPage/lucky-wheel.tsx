@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import PinWheel from "../../static/images/pin-wheel.png";
+import Wheel from "../../static/images/wheel.png";
 
 type Segment = {
   id: string | number;
@@ -15,8 +16,6 @@ type LuckyWheelProps = {
   onFinish?: (segment: Segment, index: number) => void;
   winnerIndex?: number | null;
   easing?: string;
-  spinning?: boolean;
-  setSpinning?: (v: boolean) => void;
 };
 
 export default function LuckyWheel1({
@@ -26,13 +25,12 @@ export default function LuckyWheel1({
   onFinish,
   winnerIndex = null,
   easing = "cubic-bezier(0.33,1,0.68,1)",
-  spinning = false,
-  setSpinning,
 }: LuckyWheelProps) {
   const segCount = segments.length;
   const segAngle = 360 / segCount;
   const wheelRef = useRef<HTMLDivElement | null>(null);
   const spinCountRef = useRef(0);
+  const isSpinningRef = useRef(false);
 
   // ✅ Chuẩn hóa màu (#fff → #ffffff)
   const normalizeColor = (color: string) => {
@@ -51,15 +49,15 @@ export default function LuckyWheel1({
 
   const getTargetRotationForIndex = (index: number) => {
     const centerAngle = index * segAngle + segAngle / 2;
-    const target = 360 - (centerAngle - 90);
-    return (target + 360) % 360;
+    const target = (270 - centerAngle + 360) % 360;
+    return target;
   };
 
   const spin = (forcedIndex?: number | null) => {
-    if (spinning) return;
+    if (isSpinningRef.current) return;
     if (forcedIndex == null) return;
 
-    setSpinning?.(true);
+    isSpinningRef.current = true;
 
     const chosenIndex = forcedIndex;
     const targetBase = getTargetRotationForIndex(chosenIndex);
@@ -73,7 +71,7 @@ export default function LuckyWheel1({
     el.style.transform = `rotate(${totalRotation}deg)`;
 
     setTimeout(() => {
-      setSpinning?.(false);
+      isSpinningRef.current = false;
       if (onFinish) onFinish(segments[chosenIndex], chosenIndex);
     }, spinDuration * 1000);
   };
@@ -88,11 +86,10 @@ export default function LuckyWheel1({
         width: size,
         height: size,
         margin: "0 auto",
-        borderRadius: "50%",
         boxSizing: "content-box",
-        background: "linear-gradient(180deg, #42FF9E 0%, #9DFFCC 19.45%)",
-
-        overflow: "hidden",
+        backgroundImage: `url(${Wheel})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
       <div
@@ -210,10 +207,8 @@ export default function LuckyWheel1({
 
       <button
         onClick={() => {
-          const random = Math.floor(Math.random() * segments.length);
-          spin(random ?? null);
+          spin(winnerIndex ?? null);
         }}
-        disabled={spinning}
         style={{
           position: "absolute",
           left: "50%",
@@ -221,7 +216,6 @@ export default function LuckyWheel1({
           transform: "translate(-50%, -50%)",
           borderRadius: "50%",
           width: 61,
-          cursor: spinning ? "not-allowed" : "pointer",
           zIndex: 10,
         }}
       >
